@@ -1,4 +1,5 @@
 from tabulate import tabulate
+from math import *
 
 def mcd(x, y):
     return x if y == 0 else mcd(y, x % y)
@@ -20,6 +21,9 @@ class BooleanSet:
             foo &= i in other.set
         
         return len(self.set) <= len(other.set) and foo
+    
+    def athomCount(self):
+        return log(len(self.set), 2)
 
     def __le__(self, other):
         foo = True
