@@ -1,5 +1,7 @@
 # Matemática Discreta FIUBA
 
+*Es bienvenida toda colaboracion al repositorio*
+
 ## [realciones_orden.py](./relaciones_orden.py)
 
 Dado un conjunto A y un subconjunto de A, B. Informa al usuario:
