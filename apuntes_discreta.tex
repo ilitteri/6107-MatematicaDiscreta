@@ -1,0 +1,532 @@
+\documentclass[]{article}
+
+%\usepackage[utf-8]{inputenc}
+\usepackage{graphicx} % Required for including pictures
+\usepackage[figurename=Figure]{caption}
+\usepackage{float}    % For tables and other floats
+\usepackage{verbatim} % For comments and other
+\usepackage{amsmath}  % For math
+\usepackage{amssymb}  % For more math
+\usepackage{fullpage} % Set margins and place page numbers at bottom center
+%\usepackage{paralist} % paragraph spacing
+\usepackage{listings} % For source code
+\usepackage{subfig}   % For subfigures
+%\usepackage{physics}  % for simplified dv, and 
+\usepackage{enumitem} % useful for itemization
+\usepackage{siunitx}  % standardization of si units
+
+\usepackage{tikz,bm} % Useful for drawing plots
+%\usepackage{tikz-3dplot}
+\usepackage{circuitikz}
+\usepackage{dsfont}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{multirow}
+
+
+%opening
+\title{Notas de Matematica Discreta}
+\author{Ivan Litteri}
+\date{}
+\begin{document}
+
+\maketitle
+
+\section{Lógica}\label{sec:logica}
+
+Las reglas de la logica le dan un significado preciso a los enunciados matematicos o sentensias matematicas. Estas reglas se usan para distinguir entre argumentos validos y no validos. La logica tiene ademas numerosas aplicaciones en ciencias de la computacion. Las reglas de la logiuca se usan en el diseño de circuitos de ordenador, la construccion de programas informaticos, la verificacion de que un programa esta bien construido y mas.
+
+\subsection*{Proposicion}\label{sec:logica-proposicion}
+
+Una proposicion es una oracion declarativa que es correcta o falsa, pero no ambas cosas a la vez.
+
+\subsubsection*{Ejemplos}
+
+\begin{enumerate}
+	\item Todas las siguientes oraciones declarativas son proposiciones:
+		\begin{enumerate}
+			\item Bruselas es la capital de la Union Europea.
+			\item Toronto es la capital de Canada.
+			\item 1 + 1 = 2.
+			\item 2 + 2 = 3.
+		\end{enumerate}
+	Las proposiciones 1 y 3 son correctas, mientras que la 2 y 4 son falsas.
+	
+	\item Considera las siguientes oraciones:
+		\begin{enumerate}
+			\item ¿Que hora es?
+			\item Lee esto con atencion.
+			\item x + 1 = 2.
+			\item x + y = z.
+		\end{enumerate}
+	Las frases 1 y 2 no son proposiciones porque no son declarativas. Las frases 3 y 4 no son proposiciones porque no son ni verdaderas ni falsas, ya que no se les han asignado valores a las variables. 
+\end{enumerate}
+
+El \textbf{valor de verdad} de una proposicion es $V$ si es verdadera y $F$ si es falsa.
+
+Se llama \textbf{calculo proposicional} o \textbf{logica proposicional} al area de la logica que trata de proposiciones. Las nuevas proposiciones, llamadas \textbf{proposicion compuestas} o \textbf{proposiciones compuestas}, se forman a partir de las existentes usando operadores logicos.
+
+\subsection*{Tabla de Verdad}
+
+Una \textbf{tabla de verdad} muestra las relaciones entre los valores de verdad ed proposiciones. Son especialmente valiosas a la hora de determinar los valores de verdad de proposiciones construidas a partir de proposiciones simples.
+
+\subsection*{Proposiciones Compuestas}
+
+\textbf{Definicion.}  Sea $p$ una proposicion. El enunciado
+		\begin{center}
+			\textit{No se cumple $p$},
+		\end{center}
+	es otra proposicion, llamada la \textit{negacion} de $p$. La negacion de $p$ se denota mediante $p'$ o ($\not p$ o $\neg p$). La proposicion $p'$ se lee \textit{no p}.\\
+
+	La negacion de una proposicion se puede considerar como el resultado de aplicar el \textbf{operador negacion} sobre una proposicion. El operador negacion construye una nueva proposicion a partir de la proposicion individual existente. 
+
+	\begin{table}[H]
+		\begin{center}
+			\label{tab:and}
+			\begin{tabular}{c|c}
+				$p$ & $p'$ \\
+				\hline
+				0 & 1 \\
+				1 & 0 
+			\end{tabular}
+		\end{center}
+	\end{table}
+
+	\textbf{Definicion.} Sean $p$ y $q$ proposiciones. La proposicion \textit{p y q}, denotada por $p \wedge q$, es la proposicion que es verdadera cuando tanto $p$ como $q$ son verdaderas y falsa en cualquier otro caso. La proposicion $p \wedge q$ se llama \textit{conjuncion} de \textit{p y q}.\\
+
+	\begin{table}[H]
+		\begin{center}
+			\label{tab:and}
+			\begin{tabular}{cc|c}
+				$p$ & $q$ & $p \wedge q$ \\
+				\hline
+				0 & 0 & 0 \\
+				0 & 1 & 0 \\
+				1 & 0 & 0 \\
+				1 & 1 & 1 \\
+			\end{tabular}
+		\end{center}
+	\end{table}
+
+\textbf{Definicion.} Sean $p$ y $q$ proposiciones. La proposicion \textit{p o q}, denotada por $p \vee q$, es la proposicion que es falsa cuando tanto $p$ como $q$ son falsas y verdadera en cualquier otro caso. La proposicion $p \vee q$ se llama \textit{disyuncion} de \textit{p o q}.\\
+
+	\begin{table}[H]
+		\begin{center}
+			\label{tab:or}
+			\begin{tabular}{cc|c}
+				$p$ & $q$ & $p \vee q$ \\
+				\hline
+				0 & 0 & 0 \\
+				0 & 1 & 1 \\
+				1 & 0 & 1 \\
+				1 & 1 & 1 \\
+			\end{tabular}
+		\end{center}
+	\end{table}
+
+\textbf{Definicion.} Sean $p$ y $q$ proposiciones. El conectivo logico \textit{o exclusivo} de $p$ y $q$, denotada por $p \oplus q$, es la proposicion que es verdadera cuando exactamente una de las proposiciones $p$ y $q$ es verdadera y falsa en cualquier otro caso.\\
+
+	\begin{table}[H]
+		\begin{center}
+			\label{tab:xor}
+			\begin{tabular}{cc|c}
+				$p$ & $q$ & $p \oplus q$ \\
+				\hline
+				0 & 0 & 0 \\
+				0 & 1 & 1 \\
+				1 & 0 & 1 \\
+				1 & 1 & 0 \\
+			\end{tabular}
+		\end{center}
+	\end{table}
+
+\subsubsection*{Implicaciones}
+
+El concepto matematico de implicacion es independiente de la relacion causa-efecto entre hipotesis y conclusion. Especifica valores de verdad, no se basa en el uso del lenguaje.\\
+
+\textbf{Definicion.} Sean $p$ y $q$ proposiciones. La \textit{implicacion} $p \rightarrow q$ es la proposicion que es falsa cuando $p$ es verdadera y $q$ es falsa, y verdadera en cualquier otro caso. En esta implicacion $p$ se llama \textit{hipotesis} o \textit{antecedente} o \textit{premisa} y $q$ se llama \textit{tesis} o \textit{conclusion} o \textit{consecuencia}.\\
+
+	\begin{table}[H]
+		\begin{center}
+			\label{tab:then}
+			\begin{tabular}{cc|c}
+				$p$ & $q$ & $p \rightarrow q$ \\
+				\hline
+				0 & 0 & 1 \\
+				0 & 1 & 1 \\
+				1 & 0 & 0 \\
+				1 & 1 & 1 \\
+			\end{tabular}
+		\end{center}
+	\end{table}
+
+	Las declaraciones condicionales (como las implicaciones) tienen un rol esencial en el razonamiento matematico, existe una variedad de terminologias para expresar $p \rightarrow q$. Entre ellas:
+
+	\begin{table}[H]
+		\begin{center}
+			\begin{tabular}{c c}
+				"si $p$, entonces $q$" & "$p$ implica $q$"\\
+				"si $p$, $q$" & "$p$ solo si $q$"\\
+				"$p$ es suficiente para $q$" & "una condicion suficiente para $q$ es $p$"\\
+				"$q$ si $p$" & "$q$ cuando sea $p$"\\
+				"$q$ cuando $p$" & "$q$ es necesario para $p$"\\
+				"una condicion necesaria para $p$ es $q$" & "$q$ sigue de $p$"\\
+				"$q$ a menos que $p$" & "$q$ siempre que $p$"\\
+			\end{tabular}
+		\end{center}
+	\end{table}
+
+\subsubsection*{Recipropca, contrarreciproca e inversa}
+
+Hay algunas implicaciones relacionadas con $p \rightarrow q$ que pueden formarse a partir de ella. La proposicion $q \rightarrow p$ se llama \textbf{reciproca} de $p \rightarrow q$. La \textbf{contrarreciproca} de $p \rightarrow q$ es $q' \rightarrow p'$. La proposicion $p' \rightarrow q'$ es la \textbf{inversa} de $p \rightarrow q$. 
+Cuando dos proposiciones compuestas tienen siempre los mismos valores de verdad las llamamos \textbf{equivalentes}, de tal forma que una implicacion y su contrarreciproca son equivalentes. La reciproca y la inversa de una implicacion tambien son equivalentes.\\
+
+\textbf{Definicion.} Sean $p$ y $q$ proposiciones. La \textit{bicondicional}, o \textit{doble impliacion}, $p \leftrightarrow q$ es la proposicion que es verdadera cuando $p$ y $q$ tienen los mismos valores de veradd y falsa en los otros casos.\\
+
+	\begin{table}[H]
+		\begin{center}
+			\label{tab:then}
+			\begin{tabular}{cc|c}
+				$p$ & $q$ & $p \leftrightarrow q$ \\
+				\hline
+				0 & 0 & 1 \\
+				0 & 1 & 0 \\
+				1 & 0 & 0 \\
+				1 & 1 & 1 \\
+			\end{tabular}
+		\end{center}
+	\end{table}
+
+Notese que $p \leftrightarrow q$ es verdadera cuando $p \rightarrow q$ y $q \rightarrow p$ son verdaderas y falso de otra manera. Las formas mas comunes de expresar esto es:
+
+	\begin{table}[H]
+		\begin{center}
+			\begin{tabular}{c}
+				"$p$ es necesario y suficiente para $q$"\\
+				"si $p$ entonces $q$, y biceversa"\\
+				"$p$ sii $q$". "$p$ exactamente cuando $q$"
+			\end{tabular}
+		\end{center}
+	\end{table}
+
+\subsubsection*{Precedencia de operadores logicos}\label{sec:precedenda}
+
+\begin{table}[H]
+	\begin{center}
+		\label{tab:precedencia}
+		\begin{tabular}{c|c}
+		Operador & Precedencia \\
+		\hline
+		' (not) & 1 \\
+		$\wedge$ & 2 \\
+		$\vee$ & 4 \\
+		$\rightarrow$ & 4 \\
+		$\leftrightarrow$ & 5 \\
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\subsection*{Logica y Operaciones con Bits}\label{sec:operaciones-bits}
+
+Un \textbf{bit} tiene dos valores posibles: 0 y 1. La palabra bit viene de la expresion inglesa \textit{binary digit}. Un bit se puede utilizar para represenar un valor de verdad. Se usa 1 para representar V de verdadero y 0 para representar F de falso. Una variable se llama \textbf{variable booleana} si su valor es verdadero o falso. Se puede representar una variable booleana con bits.\\
+
+\textbf{Definicion}. Una \textit{cadena de bits} es una sucesion de cero o mas bits. La longitud de esta cadena es el numero de bits de la cadena.
+
+\subsection*{Traducir Oraciones}
+
+Traducir oraciones del lenguaje natural a expresiones legicas es una parte esencial de especificar sistemas tantohardware como sofware.
+
+Las especificaciones de sistema deben ser \textbf{consistentes}, esto es, no deben contener recursos conflictivos requisitos que podrían utilizarse para derivar una contradicción. Cuando las especificaciones no son consistentes, no habría forma de desarrollar un sistema que satisfaga todas las especificaciones.
+
+\subsection*{Busquedas Booleanas}
+
+En las busquedas booleanas se usa la conexion $AND$ para emparejar datos almacenados que contengan los dos terminos de la busqueda, la conexion $OR$ se usa para emparejar uno o ambos terminos de la busqueda y la conexion $NOT$ (a veces escrita $AND NOT$) se usa para excluir un termino particular de busqueda.
+
+\subsection*{Circuitos Logicos}
+
+Un \textbf{circuito logico} (o \textbf{circuito digital}) recibe señales de entrada $p_{1}, ..., p_{n}$, cada bit [0 (off) o 1 (on)], y produce una señal de salida $s_{1}, ..., s_{n}$ para cada bit.
+
+Circuitos digitales complejos pueden contruirse a partir de tres circuitos basicos llamados \textbf{compuertas}. El \textbf{inversor}, o \textbf{compuerta NOT}, toma el bit de entrada $p$, y produce una salida $p'$. La \textbf{compuerta OR} toma dos entradas $p$ y $q$, cada una un bit, y produce una señal de salida $p \vee q$. Finalmente, la \textbf{compuerta AND} toma dos entradas $p$ y $q$, cada una un bit, y produce una señal de salida $p \wedge q$.
+
+\subsection{Equivalencias proposicionales}
+
+\textbf{Definicion.} Una proposicion compuesta que es siempre verdadera, no importa los valores de verdad de las proposiciones que la componen, se denomina \textit{tautologia}. Una proposicion compuesta que es siepre falsa se denomina \textit{contradiccion}. Finalmente, una proposicion que no es ni una tautologia ni una contradiccion se denomina \textit{contingencia}.
+
+\subsubsection*{Equivalencias Logicas}
+
+Las proposicion compuestas que tienen los mismos valores de verdad en todos los casos posibles se llaman \textbf{logicamente equivalentes}.\\
+
+\textbf{Definicion.} Se dice que las proposiciones $p$ y $q$ son \textit{logicamente equivalentes} si $p \leftrightarrow q$ que es una tautologia. La notacion $p \equiv q$ denota que $p$ y $q$ son logicamente equivalentes.
+
+\begin{table}[H]
+	\caption*{\textbf{Equivalencias Logicas}}
+	\parbox{.5\linewidth}{
+	\begin{center}
+		\label{tab:equivalencias-logicas}
+		\begin{tabular}{|c|c|}
+			\hline
+			\textit{Equivalencia} & \textit{Nombre} \\
+			\hline
+			$p\wedge V \equiv p$ & \multirow{2}{*}{Leyes de identidad} \\
+			$p\vee F \equiv p$ & \\
+			\hline
+			$p\vee V \equiv V$ & \multirow{2}{*}{Leyes de dominacion} \\
+			$p\wedge F \equiv F$ & \\
+			\hline
+			$p\vee p \equiv p$ & \multirow{2}{*}{Leyes de idempotentes} \\
+			$p\wedge p \equiv p$ & \\
+			\hline
+			$(p')' \equiv p$ & Ley de la doble negacion\\
+			\hline
+			$p\vee q \equiv q\vee p$ & \multirow{2}{*}{Leyes de conmutativas} \\
+			$p\wedge q \equiv q\wedge p$ & \\
+			\hline
+			$(p\vee q)\vee r \equiv p \vee(q\vee p)$ & \multirow{2}{*}{Leyes de asociativas} \\
+			$(p\wedge q)\wedge r \equiv p \wedge(q\wedge p)$ & \\
+			\hline
+			$p \vee (q \wedge r) \equiv (p\vee q) \wedge (p \vee r)$ & \multirow{2}{*}{Leyes de distributivas} \\
+			$p \wedge (q \vee r) \equiv (p \wedge q) \vee (p \wedge r)$ & \\
+			\hline
+			$(p \wedge q)' \equiv p' \vee q'$ & \multirow{2}{*}{Leyes de Morgan} \\
+			$(p \vee q)' \equiv p' \wedge q'$ & \\
+			\hline
+			$p \vee (p \wedge q) \equiv p$ & \multirow{2}{*}{Leyes de absorcion} \\
+			$p \wedge (p \vee q) \equiv p$ & \\
+			\hline
+			$p\vee p' \equiv V$ & \multirow{2}{*}{Leyes de negacion} \\
+			$p\wedge p' \equiv F$ & \\
+			\hline
+		\end{tabular}
+	\end{center}}
+\quad
+	\parbox{.5\linewidth}{
+	\label{tab:equivalencias-logicas-implicaciones}
+	\begin{center}
+		\begin{tabular}{|c|}
+			\hline
+			\textit{Equivalencia}\\
+			\hline
+			$p \rightarrow q \equiv p' \vee q$\\
+			$p \rightarrow q \equiv q' \vee p$\\
+			$p \vee q \equiv p' \rightarrow q$\\
+			$p \wedge q \equiv (p \vee q')'$\\
+			$(p \vee q') \equiv p \rightarrow q'$\\
+			$(p \rightarrow q) \wedge (p \rightarrow r) \equiv p \rightarrow (q \wedge r)$\\
+			$(p \rightarrow r) \wedge (q \rightarrow r) \equiv (p \vee q) \rightarrow r$\\
+			$(p \rightarrow q) \vee (p \rightarrow r) \equiv p \rightarrow (q \vee r)$\\
+			$(p \rightarrow r) \vee (q \rightarrow r) \equiv (p \wedge q) \rightarrow r$\\
+			\hline
+			$p \leftrightarrow q \equiv (p \rightarrow q) \wedge (q \rightarrow p)$\\
+			$p \leftrightarrow q \equiv p' \leftrightarrow q'$\\
+			$p \leftrightarrow q \equiv (p \wedge q) \vee (p' \wedge q')$\\
+			$(p \leftrightarrow q)' \equiv p \leftrightarrow q'$\\
+			\hline
+			
+		\end{tabular}
+	\end{center}}
+\end{table}
+
+\subsection*{Satisfaccion}
+
+Una proposición compuesta es \textbf{satisfactoria} si hay una asignación de valores de verdad a sus variables que la hace verdadera (es decir, cuando es una tautología o una contingencia). Cuando no existen tales asignaciones, es decir, cuando la proposición compuesta es falsa para todas las asignaciones de valores de verdad a sus variables, la proposición compuesta es \textbf{insatisfactorio}. Nótese que una proposición compuesta no es satisfactoria si y solo si su negación es verdadera para todas las asignaciones de valores de verdad a las variables, es decir, si y solo si su negación es una tautología.
+
+Cuando encontramos una asignación particular de valores de verdad que hace que una proposición compuesta sea verdadera, hemos demostrado que es satisfactoria; tal asignación se denomina solución de este problema de satisfacibilidad particular. Sin embargo, para mostrar que una proposición compuesta es insatisfactoria, necesitamos mostrar que toda asignación de valores de verdad a sus variables la hace falsa. Aunque siempre podemos usar una tabla de verdad para determinar si una proposición compuesta es satisfactoria, a menudo es más eficiente no hacerlo.
+
+\subsection{Predicados y cuantificadores}
+
+\subsubsection*{Cuantificadores}
+
+Cuando todas las variables de una funcion proposicional se le han asignado valores, la sentencia resultante se convierte en una proposicion con un cierto valor de verdad. No obstante, hay otra forma importante, llamada \textbf{cuantificacion}, de crear una proposicion a partir de una funcion proposicional. Tenemos la cuantificacion universal y la cuantificacion existencial.
+
+\subsubsection*{El cuantificador universal}\label{sec:cuantificador-universal}
+
+Muchas sentencias matematicas imponen que una propiedad es verdadera para todos los valors de una variable en un dominio particular, llamado el \textbf{universo de discurso} o \textbf{dominio}. Tales sentencias se expresan utilizando un cuantificador universal. La cuantificacion universal de una funcion proposicional es la proposicion que afirma que $P(x)$ es verdadera para todos los valores de $x$ en el dominio. EL dominio especifica los posibles valores de la variable $x$.
+
+\subsubsection*{Definicion 1}\label{sec:def1-cuantificacion}
+
+La \textit{cuantificacion universal} de $P(x)$ es la proposicion $P(x)$ es verdadera para todos los valores $x$ del dominio.
+
+La notacion $\forall x P(x)$ denota la cuantificacion universal de $P(x)$. Aqui llamaremos al simbolo $\forall$ el \textbf{cuantificador universal}. La proposicion $\forall x P(x)$ se lee como \textit{para todo $x P(x)$} o \textit{para cada $x P(x)$} o \textit{para cualquier $x P(x)$}.\\
+
+Para mostrar que una sentencia de la forma $\forall x P(x)$ es falsa, donde $P(x)$ es una funcion proposicional, solo necesitamos encontrar un valor de $x$ del dominio para el cual $P(x)$ sea falsa. Este valor de $x$ se llama \textbf{contraejemplo} de la sentencia $\forall x P(x)$.
+
+\subsubsection*{El cuantificador existencial}\label{sec:cuantificador-existencial}
+
+Muchas sentencias matematicas afirman que hay un elemento con una cierta propiedad. Tales sentencias se expresan mediante cuantificadores existenciales. Con un cuantificador existencial formamos una proposicion que es verdadera si y solo si $P(x)$ es verdadera para al menos un valor de $x$ en el dominio.
+
+\subsubsection*{Definicion 2}\label{sec:def2-cuantificacion}
+
+La \textit{cuantificacion existencial} de $P(x)$ es la proposicion \textit{Existe un elemento $x$ en el dominio tal que $P(x)$ es verdadera.}
+
+Usamos la notacion $\exists x P(x)$ para la cuantificacion existencial de $P(x)$. El simbolo $\exists$ se denomina \textbf{cuantificador existencial}. La cuantificacion existencial $\exists x P(x)$ se lee como \textit{Hay un $x$ tal que $P(x)$} o \textit{Hay al menos un $x$ tal que $P(x)$} o \textit{Para algun $x P(x)$}
+
+\begin{table}[H]
+	\caption*{Cuantificadores}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textit{Sentencia} & \textit{¿Cuando es verdadera?} & \textit{¿Cuando es falsa?}\\
+			\hline
+			$\forall x P(x)$ & $P(x)$ es verdadera para todo $x$ & Hay un $x$ para el que $P(x)$ es falsa\\
+			\hline
+			$\exists x P(x)$ & Hay un $x$ para el que $P(x)$ es verdadera & $P(x)$ es falsa para todo $x$\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+Cuando se quiere determinar el valor de verdad de una cuantificacion, a veces es util realizar una busqueda sobre todos los posibles valores del dominio. Supongamos que hay $n$ objetos en el dominio de la variable $x$. Para determinar si $\forall xP(x)$ es verdadera para todos ellos. Si encontramos un valor de $x$ para el cual $P(x)$ es falsa, habremos demostrado que $\forall xP(x)$ es falsa. En caso contrario, $\forall xP(x)$ es verdadera. Para ver si $\exists x P(x)$ es verdadera, barremos los $n$ posibles de $x$ buscando algun valor para el cual $P(x)$ sea verdadera. Si encontramos uno, entonces $\exists x P(x)$ es verdadera. Si no encontramos tal valor de $x$, habremos determinado que $\exists x P(x)$ es falsa.
+
+\subsubsection*{Variables ligadas}
+
+Cuando un cuantificador se usa sobre la variable $x$ o cuando asignamos un valor a esta variable, decimos que la variable aparece \textbf{ligada}. Una variable que no aparece ligada por un cuantificador o fijada a un valor particular, se dice que es \textbf{libre}. Todas las variables que aparecen en una funcion proposicional deben ser ligadas para convertirla en proposicion. Esto se puede hacer utilizando una combinacion de cuantificadores universales, cuantificadores existenciales y asignacion de valores.
+
+La parte de una expresion logica a la cual se aplica el cuantificador se llama \textbf{ambito} de este cuantificador. Consecuentemente, una variable es libre si esta fuera del ambito de todos los cuantificadores en la proposicion compuesta.
+
+\subsubsection*{Negaciones}
+
+Cuando el dominio de un predicado $P(x)$ consiste en $n$ elementos, donde $n$ es un entero positivo, las reglas de la negcion de sentencias cuantificadas son exactamente las mismas que las leyes de De Morgan. Esto es asi porque $(\forall x P(x))'$ es lo mismo que $(P(x_{1}) \wedge P(x_{2}) \wedge ... \wedge P(x_{n}))'$, equivalente a $P(x_{1})' \vee P(x_{2})' \vee ... \vee P(x_{n})'$ por las leyes de De Morgan. Esto es lo mismo que $\exists x P(x)'$. De forma analoga,  $(\exists x P(x))'$ es lo mismo que $(P(x_{1}) \vee P(x_{2}) \vee ... \vee P(x_{n}))'$, equivalente a $P(x_{1})' \wedge P(x_{2})' \wedge ... \wedge P(x_{n})'$ por las leyes de De Morgan, lo que equivale  $\forall x P(x)'$.
+
+\begin{table}[H]
+	\caption*{Cuantificadores}
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\textit{Negacion} & \textit{proposicion compuesta equivalente} & \textit{¿Cuando es verdadera la negacion?} & \textit{¿Cuando es falsa?}\\
+			\hline
+			$(\forall x P(x))'$ & $\forall x P(x)'$ & Para cada $x$, $P(x)$ es falsa & Hay un $x$ para el que $P(x)$ es verdadera\\
+			\hline
+			$(\exists x P(x))'$ & $\exists x P(x)'$ & Hay un $x$ para el que $P(x)$ es falsa & $P(x)$ es verdadera para cada $x$\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\subsection{Cuantificadores anidados}
+
+Son cuantificadores que se localizan dentro del rango de aplicacion de otros cuantificadores, como en la sentencia $\forall x \exists y (x + y = 0)$. Los cuantificadores anidados se usan tanto en matematicas como en ciencais de la computacion. 
+
+\subsubsection*{Formalizacion de sentencias con cuantificadores anidados}
+
+\subsubsection*{Ejemplos}
+
+\begin{enumerate}
+	\item Supongamos que el dominio de las variables reales $x$ e $y$ consiste en todos los reales. La sentencia 
+	\begin{equation*}
+		\forall{x} \forall{y} (x + y = y + x)
+	\end{equation*} 
+	afirma que $x + y = y + x$ para todo par de numeros reales $x$ e $y$. Es la ley conmutativa para la suma de los numeros reales. De la misma forma la sentencia 
+	\begin{equation*}
+		\forall{x} \exists{y} (x + y = 0)
+	\end{equation*} 
+	afirma que para cada numero real $x$ hay un real $y$ tal que $x + y = 0$. Esto declara que todo numero real tiene un inverso para la suma. Analogamente, la sentencia 
+	\begin{equation*}
+		\forall{x}\forall{y}\forall{z} (x + (y + z) = (x + y) + z)
+	\end{equation*} 
+	es la ley asociativa para la suma de numeros reales.
+	
+	\item $\forall{x} \forall{y} ((x > 0) \wedge (y < 0) \rightarrow (xy < 0))$ $\equiv$ todo numero $x$ positivo y para todo $y$ negativo, el producto de ese numero $x$ por $y$ sera menor a cero.
+	
+	\item $\forall{x} (C(x) \vee \exists{y} (C(y) \wedge F(x, y)))$ $\therefore$ \textit{C(x) = x tiene una computadora}, \textit{F(x, y) = x e y son amigos} y el dominio tanto para $x$ como para $y$ consiste en todos los estudiantes de tu facultad.
+	Nos dice que para cada estudiante $x$ de tu facultad, $x$ tiene una computadora o hay un estudiante $y$ tal que $y$ tiene una computadora y $x$ e $y$ son amigos. Con otras palabras, todo estudiante de tu facultad tiene una computadora o un amigo que tiene una.
+\end{enumerate}
+
+\subsubsection*{Formalizacion de sentencias en expresiones logicas}
+
+\subsubsection*{Ejemplos}
+
+\begin{enumerate}
+	\item Expresa la sentencia «Si una persona es del sexo femenino y tiene un hijo, esta persona es la madre de alguien» como una expresión lógica que involucre predicados, cuantificadores $-$cuyo dominio es el conjunto de todas las personas$-$ y conectivos lógicos.\\
+	\textit{Solucion:} La frase anterior se puede expresar como «Para toda persona $x$, si la persona $x$ es del sexo femenino y la persona $x$ tiene un hijo, entonces existe una persona y tal que Ja persona $x$ es madre de la persona $y$». Introducimos los predicados $F(x)$ para representar «$x$ es del sexo femenino», $P(x)$ para representar «$x$ tiene un hijo» y $M(x, y)$ para representar «$x$ es madre de $y$» . La frase original se puede expresar como 
+	\begin{equation*}
+		\forall{x}((F(x) \wedge P(x)) \rightarrow \exists{y}M(x, y))
+	\end{equation*}
+	\begin{equation*}
+		\forall{x}\exists{y}((F(x) \wedge P(x)) \rightarrow M(x, y))
+	\end{equation*}
+	
+	\item «La suma de dos enteros positivos es positiva» $\equiv$ $\forall{x}\forall{y} ((x > 0) \wedge (y > 0) \rightarrow (x + y > 0))$
+	
+	\item «Todo numero real, excepto cero, tiene un inverso para el producto» $\equiv$ $\forall{x}\exists{y} ((x \neq 0) \rightarrow (xy = 1))$
+	
+	\item Definicion de limita usando cuantificadores
+	
+	\begin{equation*}
+		\lim_{x \rightarrow a} f(x) = L
+	\end{equation*}
+	Tenemos que para todo numero real $\varepsilon > 0$, existe un numero real $\delta > 0$ tal que $|f(x) - L| < \varepsilon$ siempre que $0 < |x - a| < \delta$.
+	\begin{equation*}
+		\forall{\varepsilon}\exists{\delta} (0 < |x - a| < \delta \rightarrow |f(x) - L| < \varepsilon)
+	\end{equation*}
+	\begin{center}
+		o
+	\end{center}
+	\begin{equation*}
+		\forall{\varepsilon} > 0 \exists{\delta} > 0 \forall{x} (0 < |x - a| < \delta \rightarrow |f(x) - L| < \varepsilon)
+	\end{equation*}
+\end{enumerate}
+
+\subsubsection*{Negacion de cuantificadores anidados}
+
+Las sentencias con varios cuantificadores anidados se pueden negar aplicando sucesivamente las reglas de negación de las sentencias que contienen un único cuantificador.
+
+\subsubsection*{Ejemplos}
+
+\begin{enumerate}
+	\item Negar $\forall{x}\exists{y} (xy = 1)$ de tal forma que ninguna negacion preceda al cuantificador.\\
+	\textit{Solucion:}
+	\begin{equation*}
+		(\forall{x}\exists{y} (xy = 1))' \equiv \forall{x}(\exists{y} (xy = 1))' \equiv \forall{x}\exists{y} (xy = 1)'
+	\end{equation*}
+	\begin{equation*}
+		\therefore (xy = 1)' \equiv (xy\neq1)
+	\end{equation*}
+	\begin{equation*}
+		\Rightarrow \forall{x}\exists{y} (xy\neq1)
+	\end{equation*}
+	
+	\item Usa cuantificadores para expresar la sentencia «No existe ninguna mujer que haya viajado en un vuelo de cada una de las líneas aéreas del mundo».\\
+	\textit{Solucion:}
+	\begin{equation}
+		\begin{aligned}
+			(\forall{w}\forall{a}\exists{f} (P(w, f) \wedge Q(f, a)))' &\equiv \forall{w}'\forall{a}\exists{f} (P(w, f) \wedge Q(f, a))\\
+			&\equiv \forall{w}\forall{a}'\exists{f} (P(w, f) \wedge Q(f, a))\\
+			&\equiv \forall{w}\forall{a}\exists{f}' (P(w, f) \wedge Q(f, a))\\
+			&\equiv \forall{w}\forall{a}\exists{f} (P(w, f) \wedge Q(f, a))'\\
+			&\equiv \forall{w}\forall{a}\exists{f} (P(w, f)' \wedge Q(f, a)')
+		\end{aligned}
+	\end{equation}
+	«Para toda mujer hay una línea aérea tal que, para todo vuelo,
+	esta mujer no ha viajado en ese vuelo o ese vuelo no es de esa línea aérea».
+\end{enumerate}
+
+\subsubsection{El orden de los cuantificadores}
+
+\begin{table}[H]
+	\caption*{Cuantificadores de dos variables}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textit{Sentencia} & \textit{¿Cuando es verdadera?} & \textit{¿Cuando es falsa?}\\
+			\hline
+			$\forall{x}\forall{y}P(x, y)$ & $P(x, y)$ es verdadera & Hay un par $x, y$ para el cual $P(x, y)$\\
+			$\forall{x}\forall{y}P(x, y)$ & para todo $x, y$ & es falsa\\
+			\hline
+			$\forall{x}\exists{y}P(x, y)$ & Para todo $x$ hay un $y$ para el & Hay un $x$ tal que $P(x, y)$ \\
+			 & cual $P(x, y)$ es verdadera & es falsa para todo $y$ \\
+			\hline
+			$\exists{x}\forall{y}P(x, y)$ & Hay un $x$ tal que $P(x, y)$ & Para todo $x$ hay un $y$ \\
+			 & es verdadera para todo $y$ & para el cual  $P(x, y)$ es falsa \\
+			\hline
+			$\exists{x}\exists{y}P(x, y)$ & Hay un par $x, y$ para el cual & $P(x, y)$ es falsa para todo $x, y$\\
+			$\exists{x}\exists{y}P(x, y)$ & $P(x, y)$ es verdadera &  \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+De forma similar para determinar si $\forall{x}\exists{y}P(x, y)$ es verdadera, recorreremos en un bucle todos los valores de $x$. Para cada $x$, recorremos en un bucle los valores de $y$ hasta que encontramos un $y$ para el cual $P(x, y)$ es verdadera. Si para todos los $x$ encontramos tal valor de $y$, entonces $\forall{x}\exists{y}P(x, y)$ es verdadera; si para algun $x$ no encontramos un valor de $y$ con esa propiedad, entonces $\forall{x}\exists{y}P(x, y)$ falsa.
+Para ver si $\exists{x}\forall{y}P(x, y)$ es verdadera, recorremos los valores de $x$ en un bucle hasta que encontramos un $x$ para el cual $P(x)$ es siempre verdadera cuando recorremos en un bucle todos los valores de $y$. Una vez encontrado tal valor de $x$, sabemos que $\exists{x}\forall{y}P(x, y)$ es verdadera. Si no encontramos nunca un $x$ como ese, entonces sabremos que $\exists{x}\forall{y}P(x, y)$ es falsa.
+Finalmente, para saber si $\exists{x}\exists{y}P(x, y)$ es verdadera, recorremos en un bucle los valores de $x$, y para cada valor de $x$ recorremos los valores de $y$ hasta que encontremos un $x$ oara el cual haya un $y$ que verifique que $P(x, y)$ sea verdadera.
+
+\end{document}
