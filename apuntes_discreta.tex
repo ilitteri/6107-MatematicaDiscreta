@@ -230,7 +230,7 @@ Notese que $p \leftrightarrow q$ es verdadera cuando $p \rightarrow q$ y $q \rig
 	\end{center}
 \end{table}
 
-\subsection*{Logica y Operaciones con Bits}\label{sec:operaciones-bits}
+\subsubsection*{Logica y Operaciones con Bits}\label{sec:operaciones-bits}
 
 Un \textbf{bit} tiene dos valores posibles: 0 y 1. La palabra bit viene de la expresion inglesa \textit{binary digit}. Un bit se puede utilizar para represenar un valor de verdad. Se usa 1 para representar V de verdadero y 0 para representar F de falso. Una variable se llama \textbf{variable booleana} si su valor es verdadero o falso. Se puede representar una variable booleana con bits.\\
 
@@ -692,6 +692,91 @@ Las sentencias con varios cuantificadores anidados se pueden negar aplicando suc
 	\end{equation*}
 \end{enumerate}
 
-\subsection{Reglas de interferencia}
+\subsection{Reglas de inferencia}
+
+Las pruebas en matematica son argumentos validos que establecen la validez de una declaracion matematica. Por \textbf{argumento}, nos referimos a una secuencia de declaraciones que terminan en una conclusion. Por \textbf{valido} nos referimos a que la conclucion, o declaracion final del argumento, debe deducirse de la veracidad de las afirmaciones o \textbf{premisas} precedentes del argumento. Es decir, un argumento es valido sii es imposible para todas las premisas verdaderas llegar a una conclusion falsa. Para deducir nuevas declaraciones de declaraciones previas, debemos usar las reglas de inferencia las cuales son plantillas para la construccion de argumentos validos. Las reglas de inferencia son nuestras herramientas basicas para establecer la validez de declaraciones.
+
+\subsubsection*{Argumentos validos en logica proposional}
+
+\textbf{Definicion.} Un \textit{argumento} en logica proposicional es una secuencia de proposiciones. Todas menos la ultima proposicion en el argumento se llaman \textit{premisas} y la proposicion final se llama \textit{conclusion}. Un argumento es \textit{valido} si la validez de todas sus premisas implica que la conclusion sea verdadera.
+Una \textit{forma de argumento} en logica proposicional es una secuencia de proposiciones compuestas que involucran variables proposicionales. Una forma de argumento es \textit{valida} si no importa qué proposiciones particulares sustituyan a las variables proposicionales en sus premisas, la conclusión es verdadera si todas las premisas son verdaderas.\\
+
+\textbf{Observacion.} De la definicion de forma de argumento valido vemos que la forma de argumento con las premisas $p_{1}, ..., p_{n}$ y conclusion $q$ es valida exactamente cuando $(p_{1} \wedge ... \wedge p_{n}) \rightarrow q$ es una tautologia.
+La clave para demostrar que un argumento en logica proposicional es valido es demostrar que su forma de argumento es valida.
+
+\subsubsection*{Reglas de inferencia en logica proposicional}
+
+\begin{table}[H]
+	\caption*{Reglas de Inferencia}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{\textit{Reglas de Inferencia}} & \textbf{\textit{Tautologia}} & \textbf{\textit{Nombre}}\\
+			\hline
+			$p$ &  & \\
+			$p \rightarrow q$ & $(p\wedge (p \rightarrow q)) \rightarrow q$ & Modus ponens\\
+			$\therefore q$ &  & \\
+			\hline
+			$q'$ &  & \\
+			$p \rightarrow q$ & $(q' \wedge (p \rightarrow q)) \rightarrow p'$ & Modus tollens\\ 
+			$\therefore p'$ &  & \\
+			\hline
+			$p \rightarrow q$ &  & \\
+			$q \rightarrow r$ & $((p \rightarrow q) \wedge (q \rightarrow r)) \rightarrow (p \rightarrow r)$ & Silogismo hipotetico\\
+			$\therefore p \rightarrow r$ &  & \\
+			\hline
+			$p \vee q$ &  & \\
+			$p'$ & $((p \vee q) \wedge p') \rightarrow q$ & Silogismo disjuntivo\\
+			$\therefore q$ &  & \\
+			\hline
+			$p$ & $p \rightarrow (p \vee q)$ & Adicion\\
+			$\therefore p \vee q$ &  & \\
+			\hline
+			$p \wedge q$ & $(p \wedge q) \rightarrow p$ & Simplificacion\\
+			$\therefore p$ &  & \\
+			\hline
+			$p$ &  & \\
+			$q$ & $((p) \wedge (q)) \rightarrow (p \wedge q)$ & Conjuncion\\
+			$\therefore p \wedge q$ &  & \\
+			\hline
+			$p \vee q$ &  & \\
+			$p' \vee r$ & $((p \vee q) \wedge (p' \vee r)) \rightarrow (q \vee r)$ & Resolucion\\
+			$\therefore q \vee r$ &  & \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\subsubsection*{Ejemplos}
+
+\begin{enumerate}
+	\item Indique qué regla de inferencia es la base del siguiente argumento: “Ahora está bajo cero y está lloviendo. Por lo tanto, ahora está bajo cero ".\\
+	\textit{Solucion:} sea $p$ la proposicion "Ahora esta bajo cero", y sea $q$ la proposicion "Esta lloviendo ahora". El argumento es de la forma:
+	\begin{equation*}
+		\begin{aligned}
+			&p \wedge q\\
+			\therefore &p
+		\end{aligned}
+	\end{equation*}
+	Este argumnto usa la regla de simplificacion.
+
+	\item Indique qué regla de inferencia es la base del siguiente argumento:
+	"Si hoy llueve, entonces no haremos asado hoy. Si no hacemos asado hoy, entonces haremos asado mañana. Por lo tanto, si llueve hoy, entonces haremos asado mañana.\\
+	\textit{Solucion:} Sea $p$ la proposicion "Hoy esta lloviendo", sea $q$ la proposicion "No haremos asado hoy", y sea $t$ la proposicion "Haremos asado mañana". Entonces el argumento es de la forma:
+	\begin{equation*}
+		\begin{aligned}
+			&p \rightarrow q\\
+			&q \rightarrow r\\
+			\therefore &p \rightarrow r
+		\end{aligned}
+	\end{equation*}
+	Por lo tanto, el argumento es un silogismo hipotetico.
+\end{enumerate}
+
+\subsubsection*{Usando reglas de inferencia para construir argumentos}
+\subsubsection*{Resolution}
+\subsubsection*{Falacias}
+\subsubsection*{Reglas de inferencia para declaraciones cuantificadas}
+\subsubsection*{Combinando reglas de inferencia para proposiciones y declaraciones cuantificadas}
 
 \end{document}
