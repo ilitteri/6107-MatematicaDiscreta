@@ -24,6 +24,9 @@
 \usepackage{multirow}
 
 
+\usepackage{amsthm}
+
+
 %opening
 \title{Notas de Matematica Discreta}
 \author{Ivan Litteri}
@@ -36,8 +39,9 @@
 
 Las reglas de la logica le dan un significado preciso a los enunciados matematicos o sentensias matematicas. Estas reglas se usan para distinguir entre argumentos validos y no validos. La logica tiene ademas numerosas aplicaciones en ciencias de la computacion. Las reglas de la logiuca se usan en el diseño de circuitos de ordenador, la construccion de programas informaticos, la verificacion de que un programa esta bien construido y mas.
 
-\subsection*{Proposicion}\label{sec:logica-proposicion}
+\subsection{Logica Proposicional}
 
+\subsubsection*{Proposicion}
 Una proposicion es una oracion declarativa que es correcta o falsa, pero no ambas cosas a la vez.
 
 \subsubsection*{Ejemplos}
@@ -66,11 +70,11 @@ El \textbf{valor de verdad} de una proposicion es $V$ si es verdadera y $F$ si e
 
 Se llama \textbf{calculo proposicional} o \textbf{logica proposicional} al area de la logica que trata de proposiciones. Las nuevas proposiciones, llamadas \textbf{proposicion compuestas} o \textbf{proposiciones compuestas}, se forman a partir de las existentes usando operadores logicos.
 
-\subsection*{Tabla de Verdad}
+\subsubsection*{Tabla de Verdad}
 
 Una \textbf{tabla de verdad} muestra las relaciones entre los valores de verdad ed proposiciones. Son especialmente valiosas a la hora de determinar los valores de verdad de proposiciones construidas a partir de proposiciones simples.
 
-\subsection*{Proposiciones Compuestas}
+\subsubsection*{Proposiciones Compuestas}
 
 \textbf{Definicion.}  Sea $p$ una proposicion. El enunciado
 		\begin{center}
@@ -92,7 +96,7 @@ Una \textbf{tabla de verdad} muestra las relaciones entre los valores de verdad 
 		\end{center}
 	\end{table}
 
-	\textbf{Definicion.} Sean $p$ y $q$ proposiciones. La proposicion \textit{p y q}, denotada por $p \wedge q$, es la proposicion que es verdadera cuando tanto $p$ como $q$ son verdaderas y falsa en cualquier otro caso. La proposicion $p \wedge q$ se llama \textit{conjuncion} de \textit{p y q}.\\
+\textbf{Definicion.} Sean $p$ y $q$ proposiciones. La proposicion \textit{p y q}, denotada por $p \wedge q$, es la proposicion que es verdadera cuando tanto $p$ como $q$ son verdaderas y falsa en cualquier otro caso. La proposicion $p \wedge q$ se llama \textit{conjuncion} de \textit{p y q}.\\
 
 	\begin{table}[H]
 		\begin{center}
@@ -232,17 +236,19 @@ Un \textbf{bit} tiene dos valores posibles: 0 y 1. La palabra bit viene de la ex
 
 \textbf{Definicion}. Una \textit{cadena de bits} es una sucesion de cero o mas bits. La longitud de esta cadena es el numero de bits de la cadena.
 
-\subsection*{Traducir Oraciones}
+\subsection{Aplicaciones de la Logica Proposicional}
+
+\subsubsection*{Traducir Oraciones}
 
 Traducir oraciones del lenguaje natural a expresiones legicas es una parte esencial de especificar sistemas tantohardware como sofware.
 
 Las especificaciones de sistema deben ser \textbf{consistentes}, esto es, no deben contener recursos conflictivos requisitos que podrían utilizarse para derivar una contradicción. Cuando las especificaciones no son consistentes, no habría forma de desarrollar un sistema que satisfaga todas las especificaciones.
 
-\subsection*{Busquedas Booleanas}
+\subsubsection*{Busquedas Booleanas}
 
 En las busquedas booleanas se usa la conexion $AND$ para emparejar datos almacenados que contengan los dos terminos de la busqueda, la conexion $OR$ se usa para emparejar uno o ambos terminos de la busqueda y la conexion $NOT$ (a veces escrita $AND NOT$) se usa para excluir un termino particular de busqueda.
 
-\subsection*{Circuitos Logicos}
+\subsubsection*{Circuitos Logicos}
 
 Un \textbf{circuito logico} (o \textbf{circuito digital}) recibe señales de entrada $p_{1}, ..., p_{n}$, cada bit [0 (off) o 1 (on)], y produce una señal de salida $s_{1}, ..., s_{n}$ para cada bit.
 
@@ -326,13 +332,26 @@ Las proposicion compuestas que tienen los mismos valores de verdad en todos los 
 	\end{center}}
 \end{table}
 
-\subsection*{Satisfaccion}
+\subsubsection*{Satisfaccion}
 
-Una proposición compuesta es \textbf{satisfactoria} si hay una asignación de valores de verdad a sus variables que la hace verdadera (es decir, cuando es una tautología o una contingencia). Cuando no existen tales asignaciones, es decir, cuando la proposición compuesta es falsa para todas las asignaciones de valores de verdad a sus variables, la proposición compuesta es \textbf{insatisfactorio}. Nótese que una proposición compuesta no es satisfactoria si y solo si su negación es verdadera para todas las asignaciones de valores de verdad a las variables, es decir, si y solo si su negación es una tautología.
+Una proposición compuesta es \textbf{satisfactoria} si hay una asignación de valores de verdad a sus variables que la hace verdadera (es decir, cuando es una tautología o una contingencia). Cuando no existen tales asignaciones, es decir, cuando la proposición compuesta es falsa para todas las asignaciones de valores de verdad a sus variables, la proposición compuesta es \textbf{git}. Nótese que una proposición compuesta no es satisfactoria si y solo si su negación es verdadera para todas las asignaciones de valores de verdad a las variables, es decir, si y solo si su negación es una tautología.
 
 Cuando encontramos una asignación particular de valores de verdad que hace que una proposición compuesta sea verdadera, hemos demostrado que es satisfactoria; tal asignación se denomina solución de este problema de satisfacibilidad particular. Sin embargo, para mostrar que una proposición compuesta es insatisfactoria, necesitamos mostrar que toda asignación de valores de verdad a sus variables la hace falsa. Aunque siempre podemos usar una tabla de verdad para determinar si una proposición compuesta es satisfactoria, a menudo es más eficiente no hacerlo.
 
 \subsection{Predicados y cuantificadores}
+
+\subsubsection*{Predicados}
+
+Declaraciones que involucran variables, como "$x > 3$", "$x = y + 3$", "La computadora $x$ funciona adecuadamente", son declaraciones que no son ni falsas ni verdaderas al no estar especificados los valores de las variables.
+
+La declaracion "$x$ es mayor que 3" tiene 2 partes. La primera parte, la variable $x$, es el sujeto de la declaracion. La segunda parte, el \textbf{predicado}, "es mayor que 3", se refiere a la propiedad que el sujeto de la delcaracion puede tener.  Podemos denotar el enunciado "x es mayor que 3" por P (x), donde P denota el predicado "es mayor que 3" y x es la variable. También se dice que el enunciado P (x) es el valor de la \textbf{función proposicional} P en x. Una vez que se ha asignado un valor a la variable x, el enunciado P (x) se convierte en una proposición y tiene un valor de verdad.\\
+
+\textbf{Ejemplo.} $P(x)$ denota la declaracion "$x > 3$". Cuales son los valores de verdad de $P(4)$ y $P(2)$?
+Obtenemos la declaracion $P(4)$ setenado $x = 4$ en la delcaracion "$x > 3$". Por lo tanto, $P(4)$, cuya declaracion es "$4 > 3$", es verdadera. Sin embargo, $P(2)$ es claramente falsa.
+
+\subsubsection*{Precondiciones y Poscondiciones}
+
+Los predicados se usan para establecer exactitud en los programas informaticos, esto es, mostrar que los programas de computadoras siempre generan la salida deseada dada una entrada valida. Las declaraciones que describen una entrada valida se conocen como \textbf{precondiciones} y las condiciones que la salida deberia satisfacer cuando se corre el programa se conocen como \textbf{poscondiciones}.
 
 \subsubsection*{Cuantificadores}
 
@@ -340,25 +359,17 @@ Cuando todas las variables de una funcion proposicional se le han asignado valor
 
 \subsubsection*{El cuantificador universal}\label{sec:cuantificador-universal}
 
-Muchas sentencias matematicas imponen que una propiedad es verdadera para todos los valors de una variable en un dominio particular, llamado el \textbf{universo de discurso} o \textbf{dominio}. Tales sentencias se expresan utilizando un cuantificador universal. La cuantificacion universal de una funcion proposicional es la proposicion que afirma que $P(x)$ es verdadera para todos los valores de $x$ en el dominio. EL dominio especifica los posibles valores de la variable $x$.
+Muchas sentencias matematicas imponen que una propiedad es verdadera para todos los valors de una variable en un dominio particular, llamado el \textbf{universo de discurso} o \textbf{dominio}. Tales sentencias se expresan utilizando un cuantificador universal. La cuantificacion universal de una funcion proposicional es la proposicion que afirma que $P(x)$ es verdadera para todos los valores de $x$ en el dominio. EL dominio especifica los posibles valores de la variable $x$.\\
 
-\subsubsection*{Definicion 1}\label{sec:def1-cuantificacion}
-
-La \textit{cuantificacion universal} de $P(x)$ es la proposicion $P(x)$ es verdadera para todos los valores $x$ del dominio.
-
-La notacion $\forall x P(x)$ denota la cuantificacion universal de $P(x)$. Aqui llamaremos al simbolo $\forall$ el \textbf{cuantificador universal}. La proposicion $\forall x P(x)$ se lee como \textit{para todo $x P(x)$} o \textit{para cada $x P(x)$} o \textit{para cualquier $x P(x)$}.\\
+\textbf{Definicion.} La \textit{cuantificacion universal} de $P(x)$ es la proposicion $P(x)$ es verdadera para todos los valores $x$ del dominio. La notacion $\forall x P(x)$ denota la cuantificacion universal de $P(x)$. Aqui llamaremos al simbolo $\forall$ el \textbf{cuantificador universal}. La proposicion $\forall x P(x)$ se lee como \textit{para todo $x P(x)$} o \textit{para cada $x P(x)$} o \textit{para cualquier $x P(x)$}.\\
 
 Para mostrar que una sentencia de la forma $\forall x P(x)$ es falsa, donde $P(x)$ es una funcion proposicional, solo necesitamos encontrar un valor de $x$ del dominio para el cual $P(x)$ sea falsa. Este valor de $x$ se llama \textbf{contraejemplo} de la sentencia $\forall x P(x)$.
 
 \subsubsection*{El cuantificador existencial}\label{sec:cuantificador-existencial}
 
-Muchas sentencias matematicas afirman que hay un elemento con una cierta propiedad. Tales sentencias se expresan mediante cuantificadores existenciales. Con un cuantificador existencial formamos una proposicion que es verdadera si y solo si $P(x)$ es verdadera para al menos un valor de $x$ en el dominio.
+Muchas sentencias matematicas afirman que hay un elemento con una cierta propiedad. Tales sentencias se expresan mediante cuantificadores existenciales. Con un cuantificador existencial formamos una proposicion que es verdadera si y solo si $P(x)$ es verdadera para al menos un valor de $x$ en el dominio.\\
 
-\subsubsection*{Definicion 2}\label{sec:def2-cuantificacion}
-
-La \textit{cuantificacion existencial} de $P(x)$ es la proposicion \textit{Existe un elemento $x$ en el dominio tal que $P(x)$ es verdadera.}
-
-Usamos la notacion $\exists x P(x)$ para la cuantificacion existencial de $P(x)$. El simbolo $\exists$ se denomina \textbf{cuantificador existencial}. La cuantificacion existencial $\exists x P(x)$ se lee como \textit{Hay un $x$ tal que $P(x)$} o \textit{Hay al menos un $x$ tal que $P(x)$} o \textit{Para algun $x P(x)$}
+\textbf{Definicion.} La \textit{cuantificacion existencial} de $P(x)$ es la proposicion \textit{Existe un elemento $x$ en el dominio tal que $P(x)$ es verdadera.} Usamos la notacion $\exists x P(x)$ para la cuantificacion existencial de $P(x)$. El simbolo $\exists$ se denomina \textbf{cuantificador existencial}. La cuantificacion existencial $\exists x P(x)$ se lee como \textit{Hay un $x$ tal que $P(x)$} o \textit{Hay al menos un $x$ tal que $P(x)$} o \textit{Para algun $x P(x)$}
 
 \begin{table}[H]
 	\caption*{Cuantificadores}
@@ -377,11 +388,47 @@ Usamos la notacion $\exists x P(x)$ para la cuantificacion existencial de $P(x)$
 
 Cuando se quiere determinar el valor de verdad de una cuantificacion, a veces es util realizar una busqueda sobre todos los posibles valores del dominio. Supongamos que hay $n$ objetos en el dominio de la variable $x$. Para determinar si $\forall xP(x)$ es verdadera para todos ellos. Si encontramos un valor de $x$ para el cual $P(x)$ es falsa, habremos demostrado que $\forall xP(x)$ es falsa. En caso contrario, $\forall xP(x)$ es verdadera. Para ver si $\exists x P(x)$ es verdadera, barremos los $n$ posibles de $x$ buscando algun valor para el cual $P(x)$ sea verdadera. Si encontramos uno, entonces $\exists x P(x)$ es verdadera. Si no encontramos tal valor de $x$, habremos determinado que $\exists x P(x)$ es falsa.
 
+\subsubsection*{El cuantificador de unicidad}
+
+No hay limitación en el número de cuantificadores diferentes que podemos definir, como "hay exactamente dos", "no hay más de tres", "hay al menos 100", etc. De estos otros cuantificadores, el que se ve con más frecuencia es el cuantificador de unicidad, denotado por $\exists!$ o $\exists_{1}$. La notacion $\exists!xP(x)$ o $\exists_{1}xP(x)$ declara que "Existe un unico $x$ tal que $P(x)$ es verdadero". Por ejemplo $\exists!x(x - 1 = 0)$, donde el dominio es el conjunto de los numeros reales, declara que existe un unico numero real $x$ tal que $x - 1 = 0$. Esta es una declaracion verdadera, pues $x = 1$ es el unico numero real que cumple la declaracion.
+
+\subsubsection*{Cuantificadores sobre dominios finitos}
+
+Cuando el dominio de un cuantificador es finita, esto es, cuando todos sus elementos pueden ser listados, las declaraciones cuantificadas pueden expresarse usando la logica proposicional. En particular, cuando los elementos del dominio son $x_{1}, ..., x_{n}$, donde $n$ es un entero positivo, el cuantificador universal $\forall xP(x)$ es lo mismo que la conjuncion $P(x_{1})\wedge ... \wedge P(x_{n})$, porque la conjuncion es verdadera sii $P(x_{1})\wedge ... \wedge P(x_{n})$ son todos verdaderos.
+Similarmente, cuando los elementos del dominio son $x_{1}, ..., x_{n}$, donde $n$ es un entero positivo, el cuantificador existencial $\exists xP(x)$ es lo mismo que la disjuncion $P(x_{1})\wedge ... \wedge P(x_{n})$ porque la disjuncion es verdadera sii al menos una de $P(x_{1}), ..., P(x_{n})$ es verdadera.
+
+\subsubsection*{Conecciones entre cuantificadores y bucles}
+
+A veces es de ayuda pensar en terminos de  bucle o busqeuda cuando se determina el valor de verdad de una cuantificacion. Suponer que hay $n$ objetos en el dominio para la variable $x$. Si $\forall xP(x)$ es verdadera, podemos iterar a traves de todos los $n$ valores de $x$ para ver si $P(x)$ es siempre verdadera. De otra forma, $\forall xP(x)$ es verdadera. Para ver si $\exists xP(x)$ es verdadero, iteramos a traves de los $n$ valores de $x$ buscando un valor para el cual $P(x)$ es verdadera. Si se encuentra, entonces $\exists xP(x)$ es verdadera, de otra forma, es falsa.
+
+\subsubsection*{Cuantificadores con dominios restringidos}
+
+A veces se usa una notacion abreviada para restringir el dominio de un cuantificador. En esta notacion, una condición que debe satisfacer una variable se incluye después del cuantificador.\\
+
+\textbf{Ejemplos} 
+\begin{enumerate}
+	\item La declaracion $\forall x < 0 (x^{2} > 0)$ declara que para todo numero real $x$ con $x < 0, x^{2} > 0$. Esto dice, "El cuadrado de un numero real negativo es positivo". Esta declaracion es lo mismo que $\forall x(x < 0 \rightarrow x^{2} > 0)$.
+
+	\item La declaracion $\forall y \neq 0(y^{3} \neq 0)$ declara que para todo numero real $y$ con $y\neq 0$, tenemos $y^{3} \neq 0$. Esto dice, "El cubo de todo numero real distinto de cero no es cero". Esta declaracion es lo mismo que $\forall y (y \neq 0 \rightarrow y^{3} \neq 0)$.
+
+	\item Finalmente, la declaracion $\exists z > 0 (z^{2} = 2)$ dice que existe al menos un numero real $z$ con $z > 0$ tal que $z^{2} = 2$. Esto dicem "Hay una raiz cuadrada de 2 positiva". Esta declaracion es equivalente a $\exists z(z > 0 \wedge z^{2} = 2)$.
+\end{enumerate}
+
+Notese que la restriccion de un cuantificador universal es lo mismo que una cuantificacion universal de una declaracion condicional. Por otro lado, la restriccion de un cuantificador existencial es lo mismo que la cuantificacion existencial de una conjuncion.
+
+\subsubsection*{Precedencia de Cuantificadores}
+
+Los cuantificadores $\forall$ y $\exists$ tienen mayor precedencia que los operadores logicos del calculo proposicional. Por ejemplo, $\forall xP(x) \vee Q(x)$ es la disjuncion de $\forall xP(x)$ y $Q(x)$. En otras palabras, significa $(\forall xP(x)) \vee Q(x)$ en lugar de $\forall x(P(x) \vee Q(x))$.
+
 \subsubsection*{Variables ligadas}
 
 Cuando un cuantificador se usa sobre la variable $x$ o cuando asignamos un valor a esta variable, decimos que la variable aparece \textbf{ligada}. Una variable que no aparece ligada por un cuantificador o fijada a un valor particular, se dice que es \textbf{libre}. Todas las variables que aparecen en una funcion proposicional deben ser ligadas para convertirla en proposicion. Esto se puede hacer utilizando una combinacion de cuantificadores universales, cuantificadores existenciales y asignacion de valores.
 
-La parte de una expresion logica a la cual se aplica el cuantificador se llama \textbf{ambito} de este cuantificador. Consecuentemente, una variable es libre si esta fuera del ambito de todos los cuantificadores en la proposicion compuesta.
+La parte de una expresion logica a la cual se aplica el cuantificador se llama \textbf{alcance} de este cuantificador. Consecuentemente, una variable es libre si esta fuera del ambito de todos los cuantificadores en la proposicion compuesta.
+
+\subsubsection*{Equivalencias logicas que involucran Cuantificadores}
+
+\textbf{Definicion.} Las declaraciones que involucran predicados y cuantificadores se dicen \textit{logicamente equivalentes} sii tienen el mismo valor de verdad sin importar que predicados se sustituyen en estas declaracionies ni el dominio de discurso utilizado para las variables en estas funciones proposicionales. Usamos la notacion $S \equiv T$ para indicar que dos declaraciones $S$ y $T$ que involucran predicados y cuantificadores son logicamente equivalentes.
 
 \subsubsection*{Negaciones}
 
@@ -402,11 +449,92 @@ Cuando el dominio de un predicado $P(x)$ consiste en $n$ elementos, donde $n$ es
 	\end{center}
 \end{table}
 
+\subsubsection*{Premisas, Conclusiones, y Argumentos}
+
+\textbf{Ejemplo.} Considere estas declaraciones. Las primeras dos son llamadas \textit{premisas} y la tercera es llamada \textit{conclusion}. El conjunto entero es llamado \textit{argumento}.\\
+\textit{"Todos los leones son fieras."}\\
+\textit{"Algunos leones no toman cafe."}\\
+\textit{"Algunas criaturas fieras no toman cafe."}\\
+Podemos expresar esas declaraciones como:\\
+$\forall x(P(x) \rightarrow Q(x))$\\
+$\exists x(P(x) \wedge R(x)')$\\
+$\exists x(Q(x) \wedge R(x)')$\\
+
 \subsection{Cuantificadores anidados}
 
 Son cuantificadores que se localizan dentro del rango de aplicacion de otros cuantificadores, como en la sentencia $\forall x \exists y (x + y = 0)$. Los cuantificadores anidados se usan tanto en matematicas como en ciencais de la computacion. 
 
-\subsubsection*{Formalizacion de sentencias con cuantificadores anidados}
+\subsubsection*{El orden de los cuantificadores}
+
+\begin{table}[H]
+	\caption*{Cuantificadores de dos variables}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textit{Sentencia} & \textit{¿Cuando es verdadera?} & \textit{¿Cuando es falsa?}\\
+			\hline
+			$\forall{x}\forall{y}P(x, y)$ & $P(x, y)$ es verdadera & Hay un par $x, y$ para el cual $P(x, y)$\\
+			$\forall{x}\forall{y}P(x, y)$ & para todo $x, y$ & es falsa\\
+			\hline
+			$\forall{x}\exists{y}P(x, y)$ & Para todo $x$ hay un $y$ para el & Hay un $x$ tal que $P(x, y)$ \\
+			 & cual $P(x, y)$ es verdadera & es falsa para todo $y$ \\
+			\hline
+			$\exists{x}\forall{y}P(x, y)$ & Hay un $x$ tal que $P(x, y)$ & Para todo $x$ hay un $y$ \\
+			 & es verdadera para todo $y$ & para el cual  $P(x, y)$ es falsa \\
+			\hline
+			$\exists{x}\exists{y}P(x, y)$ & Hay un par $x, y$ para el cual & $P(x, y)$ es falsa para todo $x, y$\\
+			$\exists{x}\exists{y}P(x, y)$ & $P(x, y)$ es verdadera &  \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\subsubsection*{Ejemplos}
+
+\begin{enumerate}
+	\item Sea $P(x, y)$ la proposicion $"x + y = y + x"$. Cuales son los valores de verdad de las cuantificaciones $\forall x \forall y P(x, y)$ y $\forall y \forall x P(x, y)$, si las variables son numeros reales?
+	\textit{Solucion:}
+	La sentencia
+	\begin{equation*}
+		\forall x\forall y P(x,y),
+	\end{equation*}
+	denota la proposicion
+	\begin{center}
+		"Para todos los numeros reales $x$, para todos los numeros reales $y$, $x + y = y + x$"
+	\end{center}
+	La sentencia
+	\begin{equation*}
+		\forall y\forall x P(x,y),
+	\end{equation*}
+	denota la proposicion
+	\begin{center}
+		"Para todos los numeros reales $y$, para todos los numeros reales $x$, $x + y = y + x$"
+	\end{center}
+	Ambas son equivalentes.
+
+	\item $Q(x,y)$ denota $"x + y = 0"$. Cuales son los valores de verdad de la cuantificacion $\exists y \forall x Q(x,y)$ y $\forall x \exists y Q(x,y)$, donde el dominio son los reales?
+	\textit{Solucion:}
+	La cuantificacion
+	\begin{equation*}
+		\exists y \forall x Q(x,y),
+	\end{equation*}
+	denota la proposicion
+	\begin{center}
+		"Hay un numero real $y$ tal que para todo numero real $x$, $Q(x,y)$"
+	\end{center}
+	Sin importar el valor elegido de $y$, hay solo un valor de $x$ para que $x + y = 0$. Porque no hay numeor real $y$ tal que $x + y = 0$ para todo numero real $x$, la proposicion $\exists y \forall x Q(x,y)$ es falsa.
+	La cuantificacion
+	\begin{equation*}
+		\forall x \exists y Q(x,y),
+	\end{equation*}
+	denota la proposicion
+	\begin{center}
+		"Para todo numero real $x$ hay un numero real $y$ tal que $Q(x,y)$."
+	\end{center}
+	Dado un numero real $x$, hay un numero real $y$ tal que $x + y = 0$; a saber, $y = -x$. Por lo tanto, la declaracion $\forall x \exists y Q(x,y)$ es verdadera.
+\end{enumerate}
+
+\subsubsection*{Traducir oraciones en español a expresiones logicas}
 
 \subsubsection*{Ejemplos}
 
@@ -428,6 +556,7 @@ Son cuantificadores que se localizan dentro del rango de aplicacion de otros cua
 	\item $\forall{x} \forall{y} ((x > 0) \wedge (y < 0) \rightarrow (xy < 0))$ $\equiv$ todo numero $x$ positivo y para todo $y$ negativo, el producto de ese numero $x$ por $y$ sera menor a cero.
 	
 	\item $\forall{x} (C(x) \vee \exists{y} (C(y) \wedge F(x, y)))$ $\therefore$ \textit{C(x) = x tiene una computadora}, \textit{F(x, y) = x e y son amigos} y el dominio tanto para $x$ como para $y$ consiste en todos los estudiantes de tu facultad.
+	\textit{Solucion:}
 	Nos dice que para cada estudiante $x$ de tu facultad, $x$ tiene una computadora o hay un estudiante $y$ tal que $y$ tiene una computadora y $x$ e $y$ son amigos. Con otras palabras, todo estudiante de tu facultad tiene una computadora o un amigo que tiene una.
 \end{enumerate}
 
@@ -449,7 +578,7 @@ Son cuantificadores que se localizan dentro del rango de aplicacion de otros cua
 	
 	\item «Todo numero real, excepto cero, tiene un inverso para el producto» $\equiv$ $\forall{x}\exists{y} ((x \neq 0) \rightarrow (xy = 1))$
 	
-	\item Definicion de limita usando cuantificadores
+	\item Definicion de limite usando cuantificadores
 	
 	\begin{equation*}
 		\lim_{x \rightarrow a} f(x) = L
@@ -464,6 +593,54 @@ Son cuantificadores que se localizan dentro del rango de aplicacion de otros cua
 	\begin{equation*}
 		\forall{\varepsilon} > 0 \exists{\delta} > 0 \forall{x} (0 < |x - a| < \delta \rightarrow |f(x) - L| < \varepsilon)
 	\end{equation*}
+\end{enumerate}
+
+\subsubsection*{Cuantificadores como bucles}
+
+De forma similar para determinar si $\forall{x}\exists{y}P(x, y)$ es verdadera, recorreremos en un bucle todos los valores de $x$. Para cada $x$, recorremos en un bucle los valores de $y$ hasta que encontramos un $y$ para el cual $P(x, y)$ es verdadera. Si para todos los $x$ encontramos tal valor de $y$, entonces $\forall{x}\exists{y}P(x, y)$ es verdadera; si para algun $x$ no encontramos un valor de $y$ con esa propiedad, entonces $\forall{x}\exists{y}P(x, y)$ falsa.
+Para ver si $\exists{x}\forall{y}P(x, y)$ es verdadera, recorremos los valores de $x$ en un bucle hasta que encontramos un $x$ para el cual $P(x)$ es siempre verdadera cuando recorremos en un bucle todos los valores de $y$. Una vez encontrado tal valor de $x$, sabemos que $\exists{x}\forall{y}P(x, y)$ es verdadera. Si no encontramos nunca un $x$ como ese, entonces sabremos que $\exists{x}\forall{y}P(x, y)$ es falsa.
+Finalmente, para saber si $\exists{x}\exists{y}P(x, y)$ es verdadera, recorremos en un bucle los valores de $x$, y para cada valor de $x$ recorremos los valores de $y$ hasta que encontremos un $x$ oara el cual haya un $y$ que verifique que $P(x, y)$ sea verdadera.
+
+\subsubsection*{Traducir enunciados matemáticos en enunciados que involucran cuantificadores anidados}
+
+\subsubsection*{Ejemplos}
+
+\begin{enumerate}
+	\item Traducir la delcaracion "La suma de dos enteros positivos siempre es positiva" en una expresion logica:
+	\textit{Solucion:}
+	\begin{equation*}
+		\forall x \forall y ((x > 0) \wedge (y > 0) \rightarrow (x + y > 0))
+	\end{equation*}
+
+	\item Traducir la declaracion "Todo numero real excepto el cero tiene un inverso multiplicativo":
+	\textit{Solucion:}
+	\begin{equation*}
+		\forall x ((x \neq 0) \rightarrow \exists y(x\cdot y = 1))
+	\end{equation*}
+\end{enumerate}
+
+\subsubsection*{Traducir cuantificadores anidados a español}
+
+\subsubsection*{Ejemplos}
+
+\begin{enumerate}
+	\item Traducir la declaracion
+	\begin{equation}
+		\forall x(C(x) \vee \exists y(C(y) \wedge F(x,y)))
+	\end{equation}
+	a español, donde $C(x)$ es "$x$ tiene una computadora", $F(x,y)$ es "$x$ e $y$ son amigos", y el dominio de $x$ e $y$ son los estudiantes de tu escuela:
+
+	\textit{Solucion:}
+	La declaracion dice que para todo estudiante $x$ de mi escuela, $x$ tiene una computadora o hay un estudiante $y$ tal que $y$ tiene una computadora y $x$ e $y$ son amigos. En otras palabras, todo estudiante en mi escuela tiene una computadora o tiene un amigo que tiene una.
+
+	\item Traducir la declaracion
+	\begin{equation}
+		\exists x \forall y \forall z ((F(x,y) \wedge F(x, z) \wedge (y \neq z)) \rightarrow F(y,z)')
+	\end{equation}
+	a español, donde $F(a,b)$ significa que $a$ y $b$ son amigos y el dominio de $x, y, x$ consiste en todos los estudiantes de tu escuela:
+
+	\textit{Solucion:}
+	Primero examinamos la expresion $(F(x,y) \wedge F(x, z) \wedge (y \neq z)) \rightarrow F(y,z)'$. Esta expresion dice que si los estudiantes $x$ e $y$ son amigos, los estudantes $x$ y $z$ son amigos, y ademas, si $y$ y $z$ no son el mismo estudiante, entonces $y$ y $z$ no son amigos. A esto sigue que la declaracion original, que es triplemente cuantificada, dice que hay un estudiante $x$ tal que para todos los estudiantes $y$ y todos los estudiantes $z$ distintos de $y$, si $x$ e $y$ son amigos y $x$ y $z$ son amigos, entonces $y$ y $z$ no son amigos. EN otras palabras, hay un estudiante cuyos amigos no son amigos entre si.
 \end{enumerate}
 
 \subsubsection*{Negacion de cuantificadores anidados}
@@ -498,35 +675,23 @@ Las sentencias con varios cuantificadores anidados se pueden negar aplicando suc
 	\end{equation}
 	«Para toda mujer hay una línea aérea tal que, para todo vuelo,
 	esta mujer no ha viajado en ese vuelo o ese vuelo no es de esa línea aérea».
+
+	\item Use cuantificadores y predicados para expresar el hecho de que $\lim_{x \rightarrow a} f(x)$ no existe cuando $f(x)$ es una funcion de valor real de variable real $x$ y $a$ pertenece al dominio de $f$
+	\textit{Solucion:}
+	Decir que tal limite no existe significa que para todo numero real $L$, $\lim_{x \rightarrow a} f(x) \neq L$.
+	\begin{equation*}
+		\begin{aligned}
+			(\forall \varepsilon > 0 \exists \sigma > 0 \forall x(0 < |x - a| < \sigma \rightarrow |f(x) - L | < \varepsilon)' &\equiv \exists \varepsilon > 0 (\exists \sigma > 0 \forall x(0 < 1x - a| < \sigma \rightarrow |f(x) - L | < \varepsilon))'\\
+			&\equiv \exists \varepsilon > 0 \forall \sigma > 0 (\forall x(0 < |x - a| < \sigma \rightarrow |f(x) - L | < \varepsilon)'\\
+			&\equiv \exists \varepsilon > 0 \forall \sigma > 0 \exists x(0 < |x - a| < \sigma \rightarrow |f(x) - L | < \varepsilon)'\\
+			&\equiv \exists \varepsilon > 0 \forall \sigma > 0 \exists x(0 < |x - a| < \sigma \wedge |f(x) - L | \geq \varepsilon)
+		\end{aligned}
+	\end{equation*}
+	\begin{equation*}
+		\Rightarrow \forall L \exists \varepsilon > 0 \forall \sigma > 0 \exists x(0 < |x - a| < \sigma \wedge |f(x) - L | \geq \varepsilon)
+	\end{equation*}
 \end{enumerate}
 
-\subsubsection{El orden de los cuantificadores}
-
-\begin{table}[H]
-	\caption*{Cuantificadores de dos variables}
-	\begin{center}
-		\begin{tabular}{|c|c|c|}
-			\hline
-			\textit{Sentencia} & \textit{¿Cuando es verdadera?} & \textit{¿Cuando es falsa?}\\
-			\hline
-			$\forall{x}\forall{y}P(x, y)$ & $P(x, y)$ es verdadera & Hay un par $x, y$ para el cual $P(x, y)$\\
-			$\forall{x}\forall{y}P(x, y)$ & para todo $x, y$ & es falsa\\
-			\hline
-			$\forall{x}\exists{y}P(x, y)$ & Para todo $x$ hay un $y$ para el & Hay un $x$ tal que $P(x, y)$ \\
-			 & cual $P(x, y)$ es verdadera & es falsa para todo $y$ \\
-			\hline
-			$\exists{x}\forall{y}P(x, y)$ & Hay un $x$ tal que $P(x, y)$ & Para todo $x$ hay un $y$ \\
-			 & es verdadera para todo $y$ & para el cual  $P(x, y)$ es falsa \\
-			\hline
-			$\exists{x}\exists{y}P(x, y)$ & Hay un par $x, y$ para el cual & $P(x, y)$ es falsa para todo $x, y$\\
-			$\exists{x}\exists{y}P(x, y)$ & $P(x, y)$ es verdadera &  \\
-			\hline
-		\end{tabular}
-	\end{center}
-\end{table}
-
-De forma similar para determinar si $\forall{x}\exists{y}P(x, y)$ es verdadera, recorreremos en un bucle todos los valores de $x$. Para cada $x$, recorremos en un bucle los valores de $y$ hasta que encontramos un $y$ para el cual $P(x, y)$ es verdadera. Si para todos los $x$ encontramos tal valor de $y$, entonces $\forall{x}\exists{y}P(x, y)$ es verdadera; si para algun $x$ no encontramos un valor de $y$ con esa propiedad, entonces $\forall{x}\exists{y}P(x, y)$ falsa.
-Para ver si $\exists{x}\forall{y}P(x, y)$ es verdadera, recorremos los valores de $x$ en un bucle hasta que encontramos un $x$ para el cual $P(x)$ es siempre verdadera cuando recorremos en un bucle todos los valores de $y$. Una vez encontrado tal valor de $x$, sabemos que $\exists{x}\forall{y}P(x, y)$ es verdadera. Si no encontramos nunca un $x$ como ese, entonces sabremos que $\exists{x}\forall{y}P(x, y)$ es falsa.
-Finalmente, para saber si $\exists{x}\exists{y}P(x, y)$ es verdadera, recorremos en un bucle los valores de $x$, y para cada valor de $x$ recorremos los valores de $y$ hasta que encontremos un $x$ oara el cual haya un $y$ que verifique que $P(x, y)$ sea verdadera.
+\subsection{Reglas de interferencia}
 
 \end{document}
