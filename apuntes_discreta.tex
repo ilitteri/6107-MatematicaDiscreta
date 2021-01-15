@@ -774,9 +774,116 @@ La clave para demostrar que un argumento en logica proposicional es valido es de
 \end{enumerate}
 
 \subsubsection*{Usando reglas de inferencia para construir argumentos}
-\subsubsection*{Resolution}
+
+\subsubsection*{Ejemplos}
+
+\begin{enumerate}
+	\item Mostrar que las premisas "Esta tarde no esta soleada y hace mas frio que ayer", "Nosotros iremos a nadar solo si esta soleado", "Si nosotros no vamos a nadar, entonces nosotros tomaremos un viaje en canoa", y "Si nosotros tomamos un viaje en canoa, entonces nosotros estaremos en casa para el anochecer" llevan a la conclusion de que "nosotros estaremos en casa al atardecer"\\
+	\textit{Solucion:} Sean $p, q, r, s, t$ las proposiciones respectivas anteriores (en orden). ENtonces las premisas son $p' \wedge q$, $r \rightarrow p$, y $s \rightarrow t$. La conclusion es simplemente $t$. Necesitamos dar un argumento valido con tales premisas y conclusion. Construimos un argumento para mostrar que nuestras premisas llegan a la conclusion deseada:
+
+	\begin{table}[H]
+		\begin{center}
+			\begin{tabular}{ c c c }
+				& \textbf{Paso} & \textbf{Razon}\\
+				$1.$ & $p' \wedge q$ & Premisa\\
+				$2.$ & $'p$ & Simplificacion usando (1)\\
+				$3.$ & $r \rightarrow p$ & Premisa\\
+				$4.$ & $'r$ & Modus tollens usando (2) y (3)\\
+				$5.$ & $'r \rightarrow s$ & Premisa\\
+				$6.$ & $s$ & Modus ponens usando (4) y (5)\\
+				$7.$ & $s \rightarrow t$ & Premisa\\
+				$8.$ & $t$ & Modus ponens usando (6) y (7)
+			\end{tabular}
+		\end{center}
+	\end{table}
+	Notese que si se hubiese querido resolver con tabla de verdad, la misma deberia tener 32 filas.
+
+	\item Mostrar que las premisas "Si tu me envias un e-mail, entonces yo terminare de escribir el programa", "Si tu no me envias un e.mail, entonces me ire a dormir temprano", y "Si yo voy a dormir temprano, entonces yo voy a despertarme sintiendome refrescado" llevan a la conclusion "Si yo no termino de escribir el programa, entonces me despertare sintiendome refrescado".
+	\textit{Solucion:}
+	\begin{table}[H]
+		\begin{center}
+			\begin{tabular}{ c c c }
+				& \textbf{Paso} & \textbf{Razon}\\
+				$1.$ & $p \rightarrow q$ & Premisa\\
+				$2.$ & $q' \rightarrow p'$ & Contrapositiva de (1)\\
+				$3.$ & $p' \rightarrow r$ & Premisa\\
+				$4.$ & $q' \rightarrow r$ & Silogismo hipotetico de (2) y (3)\\
+				$5.$ & $r \rightarrow s$ & Premisa\\
+				$6.$ & $q' \rightarrow s$ & Silogismo hipotetico de (4) y (5)
+			\end{tabular}
+		\end{center}
+	\end{table}
+\end{enumerate}
+
+\subsubsection*{Resolucion}
+
+Los programas de computadoras se desarrollaron para automatizar tareas de razonamiento y demostrar teoremas. Muchos de estos programas una regla de inferencia conocida como \textbf{resolucion}. Esta regla de inferencia esta basada en la tautologia $((p \vee q) \wedge (p' \vee r)) \rightarrow (q \vee r)$. La disjuncion final en la regla de resolucion $q \vee r$, es llamada \textbf{resolvente}. Cuando $q = r$ en esta tautologia, obtenemos $(p \vee q) \wedge (p' \vee q) \rightarrow q$. Ademas, cuando $r = \textbf{F}$, obtenemos $(p \vee q) \wedge ('p) \rightarrow q$ (porque $q \vee \textbf{F} \equiv q)$, lo que es la tautologia en la cual la regla del silogismo disjuntivo esta basada.
+
+Para construir pruebas en logica proposicional usando resolucion como la unica regla de inferencia, la hipotesis y la conclusion deben ser expresadas como \textbf{clausulas}, donde una clausula es una disjuncion de variables o negaciones de esas variables. Podemos reemplazar una declaracion en logica proposicional que no es una clausula por una o mas declaraciones equivalentes que si lo son. Por ejemplo supone que tenemos una declaracion de la forma $p \vee (q \wedge r)$. Porque $p \vee (q \wedge r) \equiv (p \vee q) \wedge (p \vee r)$, podemos reemplazar la declaracion $p \vee (q \wedge r)$ por dos declaraciones $p \vee q$ y $p \vee r$, cada una siendo una clausula. Podemos reeemplazar la declaracion de la forma $(p \vee q)'$ por las dos declarcaciones $p'$ y $q'$ porque la ley de De Morgan nos dice que $(p \vee q)' \equiv p' \wedge q'$. Ademas podemos reemplazar una declacacion condicional (impliacion) $p \rightarrow q$ por la disjuncion equivalente $p' \vee q$. 
+
+\subsubsection*{Ejemplos}
+
+\begin{enumerate}
+	\item Use resolucion para mostrar que la hipostesis "Jasmine esta esquiando o no esta nevando" y "Esta nevando o Bart esta jugando hockey" implican que "Jasmine esta esquiando o Bart esta jugando hockey".\\
+	\textit{Solucion:} Sea $p$ la proposicion "Esta nevando", $q$ la proposicion "Jasmine esta esquiando", y $r$ la proposicion "Bart esta jugando al hockey". Podemos representar la hipostesis como $p' \vee q$ and $p \vee r$, respectivamente. Usando resolucion, la proposicion $q \vee r$, "Jasmine esta esquiando o Bart esta jugando al hockey", cumple.
+
+	\item Muestre que las premisas $(p \wedge q) \vee r$ y $r \rightarrow s$ implican la conclusion $p \vee s$.\\
+	\textit{Solucion:} Podemos reescribir las premisas $(p \wedge q) \vee r$ como dos clausulas, $p \vee r$ y $q \vee r$. Ademas podemos reemplazar $r \rightarrow s$ por la clausula equivalente $r' \vee s$. Usando las dos clausulas $p \vee r$ y $r' \vee s$, podemos usar resolucion y concluir $p \vee s$.
+\end{enumerate}
+
 \subsubsection*{Falacias}
+
+Varias falacias comunes surgen en argumentos incorrectos. Estas falacias se asemejan a las reglas de inferencia, pero se basan en contingencias más que en tautologías. Estos se analizan aquí para mostrar la distinción entre razonamiento correcto e incorrecto.
+
+La proposicion $((p \rightarrow q) \wedge q) \rightarrow p$ no es una tautologia, porque es falsa cuando $p$ es falsa y $q$ es verdadera. De todas formas, hay muchos argumentos incorrectos que tratan esto como una tautologia. En otras palabras, tratan a los argumentos con premisas $p \rightarrow q$ y $q$ y conclusion $p$ como forma de argumento valida, lo cual no lo es. Este tipo de razonamiento incorrecto se llama la \textbf{falacio de afirmacion de conclusion}.
+
+La proposicion $((p \rightarrow q) \wedge p') \rightarrow q'$ no es una tautologia, porque es falsa cuando $p$ es falsa y $q$ es verdadera. Muchos argumentos incorrectos usan esto incorrectamente como una regla de inferencia. Este tipo de razonamiento incorrecto se llama \textbf{falacia de la negacion de hipotesis}.
+
+\subsubsection*{Ejemplos}
+
+\begin{enumerate}
+	\item Es el siguiente argumento valido? "Si tu realizas todos los problemas de este libro, entonces tu aprenderas matematica discreta. Tu aprendiste matematica discreta. Por lo tanto, tu realizaste todos los problemas en este libro.\\
+	\textit{Solucion:} Sea $p$ la proposicion "Tu realizaste todos los problemas en este libro". Sea $q$ la proposicion "Tu aprendendiste matematica discreta". Entonces el argumento es de la forma: si $p \rightarrow q$ y $q$, entonces $p$. Este es un ejemplo de un argumento incorrecto utilizando la falacia por afirmacion de conclusion. En efecto, es posible para ti aprender matematica discreta de alguna forma distinta a realizar todos los problemas de este libro. (Puedes aprender matematica discreta leyendo, escuchando lecturas, haciendo algunos, pero no todos los problemas de este libro, etc).
+
+	\item Sea $p$ y $q$ tal que el ejemplo anterior. Si la declaracion condicional $p \rightarrow q$ es verdadera, y $p'$ es verdadera, ¿es correcto concluir que $q'$ es verdadera? En otras palabras, es correcto asumir que tu no aprenderas matematica discreta si tu no resuelves cada problema de este libro, asumiendo que si tu realizas cada problema de este libro, entonces aprenderas matematica discreta?\\
+	\textit{Solucion:} es posible que tu hayas aprendido matematica discreta aun si tu no realizar cada problema en este libro. Este argumento incorrecto es de la forma $p \rightarrow q$ y $p'$ implica $q'$, lo cual es un ejemplo de la falacia de la negacion de hipotesis.
+\end{enumerate}
+
 \subsubsection*{Reglas de inferencia para declaraciones cuantificadas}
+
+Estas reglas de inferencia se usan extensivamente en los argumentos matematicos, a veces sin ser explicitamente mencionados.\\
+
+La \textbf{instanciacion universal} es la regla de inferencia usada para concluir que $P(c)$ es verdadera, donde $c$ es un miembro particular de un dominio, dada una premisa $\forall xP(x)$. La instanciacion universal se usa cuando concluimos de una declaracion "Todas las mujeres son sabias" que "Lisa es sabia", donde Lisa es el miembro del dominio de las mujeres.
+
+La \textbf{generalizacion universal}  es la regla de inferencia que declara que $\forall xP(x)$ es verdadera, dada una premisa de que $P(c)$ es verdadera para todos los elementos $c$ del dominio. La generalizacion universal es usada cuando mostramos que $\forall x P(x)$ es verdadero tomando un elemento arbitrario $c$ del dominio y mostrando que $P(c)$ es verdadera. El elemento $c$ que elegimos debe ser arbitrario, y no uno especifico. Cuando acertamos de $\forall x P(x)$ la existencia del elemento $c$ en el dominio, no tenemos control sobre $c$ y no podemos hacer otras suposiciones sobre $c$ distintas de las que vienen del dominio. La generalización universal se usa implícitamente en muchas pruebas en matemáticas y rara vez se menciona explícitamente. Sin embargo, el error de agregar suposiciones injustificadas sobre el elemento arbitrario $c$ cuando se usa la generalización universal es demasiado común en el razonamiento incorrecto.
+
+La \textbf{instanciacion existencial} es la regla que nos premite concluir que hay un elemento $c$ en el dominio para el cual $P(c)$ es verdadera si sabemos que $\exists x P(x)$ es verdadera. Nosotros no podemos elegir un valor arbitrario de $c$ aqui, pero debe ser un $c$ para el cual $P(c)$ sea verdadera. Usualmente no tenemos conocimiento de tal $c$, solo sabemos que existe. Porque existe, le damos un nombre y continuamos nuestro argumento.
+
+La \textbf{generalizacion existencial} es la regla de inferencia se usa para concluir que $\exists x P(x)$ es verdadera cuando se conoce un elemento particular $c$ con $P(c)$ verdadera. Esto es, si sabemos que un elemento $c$ en el dominio para el cual $P(c)$ es verdadera, entonces sabemos que $\exists x P(x)$ es verdadera.
+
+\begin{table}[H]
+	\caption*{Reglas de Inferencia para Declaraciones Cuantificadas}
+	\begin{center}
+		\begin{tabular}{| c | c |}
+			\hline
+			\textbf{\textit{Reglas de Inferencia}} & \textbf{\textit{Nombre}}\\
+			\hline
+			$\forall xP(x)$  & Instanciacion Universal\\
+			$\therefore P(c)$ & \\
+			\hline
+			$P(c)$ para un $c$ arbitrario & Generalizacion universal\\
+			$\therefore \forall xP(x)$  & \\
+			\hline
+			$\exists xP(x)$ & Instanciacion Existencial\\
+			$\therefore P(c)$ para algun elemento $c$ & \\
+			\hline
+			$P(c)$ para algun elemento $c$ & Generalizacion Existencial\\
+			$\therefore \exists xP(x)$ & \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
 \subsubsection*{Combinando reglas de inferencia para proposiciones y declaraciones cuantificadas}
 
 \end{document}

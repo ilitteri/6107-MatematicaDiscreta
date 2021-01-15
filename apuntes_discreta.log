@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.8.24)  14 JAN 2021 17:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.8.24)  15 JAN 2021 00:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -812,32 +812,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 701--703
  []
 
 [13] [14] [15]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 782.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 782.
+Underfull \hbox (badness 10000) in paragraph at lines 854--855
+
+ []
+
+[16] [17]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 889.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 889.
  (/home/ivan/LaTeX/matematica-discreta/apuntes_discreta.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 782.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 782.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 889.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 889.
 Package rerunfilecheck Info: File `apuntes_discreta.out' has not changed.
 (rerunfilecheck)             Checksum: B29875DB657B0B96A4A67313AB0617DA;498.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 782.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 889.
  ) 
 Here is how much of TeX's memory you used:
- 33868 strings out of 481239
- 781078 string characters out of 5920377
- 1144656 words of memory out of 5000000
- 48516 multiletter control sequences out of 15000+600000
- 553806 words of font info for 89 fonts, out of 8000000 for 9000
+ 33890 strings out of 481239
+ 781297 string characters out of 5920377
+ 1144654 words of memory out of 5000000
+ 48520 multiletter control sequences out of 15000+600000
+ 556900 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,12n,71p,859b,904s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,12n,71p,1053b,904s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbi1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on /home/ivan/LaTeX/matematica-discreta/apuntes_discreta.pdf (15 pages, 249138 bytes).
+Output written on /home/ivan/LaTeX/matematica-discreta/apuntes_discreta.pdf (17 pages, 260541 bytes).
 PDF statistics:
- 287 PDF objects out of 1000 (max. 8388607)
- 252 compressed objects within 3 object streams
- 119 named destinations out of 1000 (max. 500000)
+ 310 PDF objects out of 1000 (max. 8388607)
+ 273 compressed objects within 3 object streams
+ 133 named destinations out of 1000 (max. 500000)
  69 words of extra memory for PDF output out of 10000 (max. 10000000)
 
