@@ -884,6 +884,66 @@ La \textbf{generalizacion existencial} es la regla de inferencia se usa para con
 	\end{center}
 \end{table}
 
+\subsubsection*{Ejemplos}
+
+\begin{enumerate}
+	\item Mostrar que ls premisas "Todos en la clase de matematica discreta hicieron un curso de ciencias de la computacion" y "Marla es estudiante de esta clase" implican la conclusion "marla hizo un curso de ciencias de la computacion".\\
+	\textit{Solucion:} $D(x)$ denota $x$ esta en esta clase de matematica discreta", y $C(x)$ denota "$x$ hizo un curso de ciencias de la computacion". Entonces las premisas son $\forall x (D(x) \rightarrow C(x))$ y $D(Marla)$. La conclucion es $C(Marla)$.
+	Los siguientes pasos pueden ser usados para establecer la conclusion desde las premisas:
+	\begin{table}[H]
+		\begin{center}
+			\begin{tabular}{ c c c }
+				& \textbf{Paso} & \textbf{Razon}\\
+				$1.$ & $\forall x(D(x) \rightarrow C(x))$ & Premisa\\
+				$2.$ & $D(Marla) \rightarrow C(Marla)$ & instanciacion universal de (1)\\
+				$3.$ & $D(Marla)$ & Premisa\\
+				$4.$ & $C(Marla)$ & Modus ponens de (2) y (3)
+			\end{tabular}
+		\end{center}
+	\end{table}
+
+	\item Mostrar que las premisas "Un estudiante de esta clase no leyo el libro", y "Todos en esta clase aprobaron el examen" implican la conclusion "Alguien que paso el examen no ha leido el libro".\\
+	\textit{Solucion:} $C(x)$ denota "$x$ esta en esta clase", $B(x)$ denota "$x$ ha leido el libro", y $P(x)$ denota "$x$ aprobo el primer examen". Las premisas son $\exists x (C(x) \wedge B(x)')$ y $\forall x(C(x) \rightarrow P(x))$. La conclusion es $\exists x(P(x) \wedge B(x)')$:
+	\begin{table}[H]
+		\begin{center}
+			\begin{tabular}{ c c c }
+				& \textbf{Paso} & \textbf{Razon}\\
+				$1.$ & $\exists x(C(x) \wedge B(x)')$ & Premisa\\
+				$2.$ & $C(a) \wedge B(a)'$ & Instanciacion existencial de (1)\\
+				$3.$ & $C(a)$ & Simplificacion de (2)\\
+				$4.$ & $\forall x(C(x) \rightarrow P(x))$ & Premisa\\
+				$5.$ & $C(a) \rightarrow P(a)$ & Instanciacion universal de (4)\\
+				$6.$ & $P(a)$ & Mdus ponens de (3) y (5)\\
+				$7.$ & $B(a)'$ & Simplificacion de (2)\\
+				$8.$ & $P(a) \wedge B(a)'$ & Conjuncion de (6) y (7)\\
+				$9.$ & $\exists x(P(x) \wedge B(x)')$ & Generalizacion existencial de (8)
+			\end{tabular}
+		\end{center}
+	\end{table}
+\end{enumerate}
+
 \subsubsection*{Combinando reglas de inferencia para proposiciones y declaraciones cuantificadas}
 
+En los ejemplos anteriores se utiliza el modus ponens, una regla de inferencia para logica proposicional, y la instanciacion universal, una regla de inferencia para declaraciones cuantificadas. Su combinacion se llama \textbf{modus ponens universal}. Esta regla nos dice que si $\forall x (P(x) \rightarrow Q(x))$ es verdadera, y si $P(a)$ es verdadera para un elemento particular $a$ en el dominio del cuantificador universal, entonces $Q(a)$ debe ser verdadera. Por ejemplo:
+\begin{equation*}
+	\begin{aligned}
+		&\forall x(P(x) \rightarrow Q(x))\\
+		&P(a)\text{, donde $a$ es un elemento particular del domino}\\
+		\therefore &Q(a)
+	\end{aligned}
+\end{equation*}
+
+\subsubsection*{Ejemplo}
+
+Asumir que "Para todo los enteros positivos $n$, si $n$ es mayor que 4, entonces $n^{2}$ es menor que $2^{n}$" es verdadero. Use el modus ponens universal para mostrar que $100^{2} < 2^{100}$.\\
+\textit{Solucion:} $P(n)$ denota "$n > 4$" y $Q(n)$ denota "$n^{2} < 2^{n}$". La declaracion "Para todo los enteros positivos $n$, si $n$ es mayor que 4, entonces $n^{2}$ es menor que $2^{n}$" puede representarse como $\forall n(P(n) \rightarrow Q(n))$, donde el dominio son los enteros positivos. Asumimos que $\forall n(P(n) \rightarrow Q(n))$ es verdadero. Note que $P(100)$ es verdadero porque $100 > 4$. Por modus ponens univeral sabemos que $Q(100)$ es verdadero, porque $100^{2} < 2^{100}$.\\
+
+Otra combinacion util de una regla de inferencia de logica proposicional y una regla de inferencia para declaraciones cuantificadas es el \textbf{modus tollens universal}. Este combina la instanciacion universal y el modus tollens y puede ser expresado:
+\begin{equation*}
+	\begin{aligned}
+		&\forall x(P(x) \rightarrow Q(x))\\
+		&Q(a)'\text{, donde $a$ es un elemento particular del domino}\\
+		\therefore &P(a)'
+	\end{aligned}
+\end{equation*}
 \end{document}
