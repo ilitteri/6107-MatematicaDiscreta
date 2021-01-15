@@ -959,6 +959,8 @@ Un teorema menos importante que resulta util en la prueba de otros resultados se
 
 Una \textbf{prueba directa} de una delcaracion condicional $p \rightarrow q$ se construye suponiendo, como primer paso, que $p$ es verdadera; los pasos subsecuentes se contruyen usando reglas de inferencia, con el paso final mostramos que $q$ tambien debe ser verdadero. Una prueba directa muestra que una declaracion condicional $p \rightarrow q$ es verdadera mostrando que si $p$ es verdadera, entonces $q$ tiene que ser verdadera, tal que la combinacion de $p$ verdadera y $q$ falsa nunca ocurra. En una prueba directa, suponemos que $p$ es verdadera y usamos axiomas, definiciones, y teoremas probados, junto con las reglas de inferencia, para mostrar que $q$ tambien es verdadera. Las pruebas directas de muchos resultados son bastante sencillas. Empezando por la hipostesis y llegando a la conclusion, el camino a seguir es esencialmente dictado por las premisas disponibles en cada paso. Sim embargo, las pruebas directas a veces requieren conocimientos particulares y pueden ser bastante complicadas.\\
 
+Las pruebas que no son directas se llaman \textbf{indirectas}.
+
 \textbf{Definicion.} Un entero $n$ es $par$ si existe un entero $k$ tal que $n = 2k$, y $n$ es $impart$ si existe un entero $k$ tal que $n = 2k + 1$. (Notese que todo entero es o par o impar, y no ambos al mismo tiempo). Dos enteros tienen la $misma paridad$ cuando o ambos son pares o ambos son impares; tienen $paridad opuesta$ cuando uno es par y el otro impar.
 
 \subsubsection*{Ejemplos}
@@ -969,6 +971,58 @@ Una \textbf{prueba directa} de una delcaracion condicional $p \rightarrow q$ se 
 
 	\item  Da una prueba directa de que si $m$ y $n$ son cuadrados perfectos, entonces $nm$ también es un \textbf{cuadrado perfecto}. (Un número entero a es un cuadrado perfecto si hay un número entero $b$ tal que $a = b^{2}$).\\
 	\textit{Solucion:} Para hacer una prueba directa de este teorema, suponemos que la hipotesis de la declaracion condicional es verdadera, entonces asumimos que $m$ y $n$ son cuadrados perfectos. Por definicion de cuadrado perfecto, sabemos que hay enteros $s$ y $t$ tal que $m = s^{2}$ y $n = t^{2}$. El objetivo de esta prueba es mostrar que $mn$ debe ser tambien un cuadrado perfecto cuando $m$ y $n$ lo son; podemos mostrar esto sustituyendo $s^{2}$ por $m$ y $t^{2}$ por $n$ en $mn$. Esto nos dice que $mn = s^{2}t^{2}$. Por lo tanto, $mn = s^{2}t^{2} = (ss)(tt) = (st)(st) = (st)^{2}$, usando conmutatividad y asociatividad de la multiplicacion. Por definicion de cuadrado perfecto, sabemos que $mn$ es tambien un cuadrado perfecto, porque es es el cuadrado de $st$, el cual es un entero. Hemos probado que si $m$ y $n$ son ambos cuadrados perfectos, entonces $mn$ tambien lo es.
+\end{enumerate}
+
+\subsubsection*{Prueba por contraposicion}
+
+Las \textbf{pruebas por contraposicion} usan el hecho de que la declaracion condicional $p \rightarrow q$ es equivalente a su contrapositivo, $q' \rightarrow p'$. Esto significa que la declaracion condicional $p \rightarrow q$ puede ser probada demostrando que su contrapositiva es verdadera. Probar la declaracion condicional anterior mediante este metodo, significa tomar $q'$ como premisa, y usando axiomas, definiciones y teoremas demostrados, junto con reglas de inferencia, demostrar que $p'$ lo es tambien.
+
+\subsubsection*{Ejemplos}
+
+\begin{enumerate}
+	\item Probar que si $n$ es un entero y $3n + 2$ es impar, entonces $n$ es impar.\\
+	\textit{Solucion:} Primero intentamos una prueba directa. Para construirla, asumimos que $3n + 2$ es un entero impar. De la definicion de entero impar, sabemos entonces que $3n + 2 = 2k + 1$ donde $k$ es un entero. Como no parece haber una forma directa de validar lo pedido, decimos que el intento de prueba directa fallo, ahora probamos por contraposicion.
+
+	El primer paso de una prueba por contraposicion es asumir que la conclusion de la declaracion condicional del enunciado es falsa; osea que asumimos que $n$ es par. Entonces por definicion de entero par tenemos que $n = 2k$ para algun entero $k$. Sustituyendo tenemos que $3n + 2 = 3(2k) + 2 = 6k + 2 = 2(3k + 1)$. Esto nos dice que la declaracion original es par porque es multiplo de $2$, por lo tanto no es impar. Esta es la negacion de la premisa del teorema. Porque la negacion de la conclusion de la declaracion condicional implica que la hipotesis es falsa, entonces la declaracion original es verdadera. Nuestra prueba por contraposicion funciono.
+\end{enumerate}
+
+\subsubsection{Pruebas vacias y pruebas triviales}
+
+Podemos probar rapidamente que una declaracion condicional $p \rightarrow q$ es verdadera cuando sabemos que $p$ es falso, porque la declaracion debe ser verdadera cuando $p$ es falsa. Consecuentemente, si mostramos que $p$ es falsa, entonces tenemos una prueba, llamada \textbf{prueba vacia}, de la declaracion condicional $p \rightarrow q$. Las pruebas vacias son usadas para establecer casos especiales de teoremas que dicen que una declaracion condicional es verdadera para todos los enteros positivos. 
+
+Tambien podemos probar rapidamente una declaracion condicional $p \rightarrow q$ si sabemos que la conclusion $q$ es verdadera. Mostrando que eso es asi, entonces la declaracion tambien lo es. Una prueba de este estilo se llama \textbf{prueba trivial}. Las pruebas triviales son importantes cuando casos especiales de teoremas son probados.
+
+\subsubsection*{Ejemplos}
+
+\begin{enumerate}
+	\item Muestre que la proposicion $P(0)$ es verdadera, donde $P(n)$ es "Si $n > 1$, entonces $n^{2} > n$" y el dominio consiste en todos los enteros.\\
+	\textit{Solucion:} Note que $P(0)$ es "Si $0 > 1$, entonces $0^{2} > 0$". Podemos demostrar $P(0)$ usando la prueba vacia. De hecho, la hipostesis $0 > 1$ es falsa. Nos dice que $P(0)$ es automaticamente verdadera.
+
+	\textbf{Observacion.} El hecho de que la conclusion del condicional $0^{2} > 0$ es falsa nos es irrelevante para el valor de verdad de la declaracion condicional, porque una declaracion condicional con una hipotesis falsa nos garantiza que es verdadera.
+
+	\item $P(n)$ es "Si $a$ y $b$ son enteros positivos con $a \geq b$, entonces $a^{n} \geq b^{n}$", donde el dominio consiste en todos los enteros no negativos. Mostrar que $P(0)$ es verdadera.\\
+	\textbf{Solucion:} La proposicion $P(0)$ es "Si $a$ y $b$ son enteros positivos con $a \geq b$, entonces $a^{0} \geq b^{0}$". Porque $a^{0} \geq b^{0} = 1$, la conclusion de la declaracion condicional es verdadera. Por lo tanto, $P(0)$ es verdadera. Este es un ejemplo de una prueba trivial. Note que la hipostesis, que es la declaracion "$a \geq b$", no se necesito en la demostracion.
+\end{enumerate}
+
+\subsubsection*{Estrategia para demostrar}
+
+Cuando se quiere demostrar una declaracion de la forma $\forall x(P(x) \rightarrow Q(x))$, primero se evalua si una prueba directa es prometedora. Comience por expandir las definiciones de la hipotesis. Empiece a razonar usando esta hipotesis, junto con los axiomas y teoremas disponibles. Si la prueba directa no parece ir a ningun lado, por ejemplo si no hay una forma clara de usar la hipostesis para llegar a la conclusion, intente probar por contraposicion.
+
+Recordar que en una prueba por contraposicion se asume que la conclusion de la declaracion condicional es falsa hy se usa una prueba directa para mostrar que esto implica que la hipotesis debe ser falsa. A veces, la prueba por contraposicion se construira facil desde la negacion de la conclusion.\\
+
+\textbf{Definicion.} Un numero real $r$ es $racional$ si existen enteros $p$ y $q$ con $q \neq 0$ tal que $r = \frac{p}{q}$. Un numero real que no es racional se llama $irracional$.
+
+\subsubsection*{Ejemplos}
+
+\begin{enumerate}
+	\item Probar que la suma de dos numeros racionales es racional. (El teorema que queremos probar seria: "Para todo numero real $r$ y todo numero real $s$, si $r$ y $s$ son numeros irracionales, entonces $r + s$ es racional).\\
+	\textit{Soluicion:} primero intentamos hacer una prueba directa. Para empezar, suponemos que $r$ y $s$ son numeros racionales. Por definicion, sabemos que los enteros $p$ y $q$, con $q \neq 0$, tal que $r = \frac{p}{q}$, y enteros $t$ y $u$, con $u \neq 0$, tal que $s = \frac{t}{u}$. ¿Podemos usar esta informacion para mostrar que $r + s$ es racional?, Si encontramos enteros $v$ y $w$ tal que $r + s = \frac{v}{w}$ y $w \neq 0$?
+
+	Con el objetivo de encontrar tales enteros $v$ y $w$, sumamos $r = \frac{p}{q}$ y $s = \frac{t}{u}$, isando $qu$ como el comun denominador. Encontramos que
+	\begin{equation}
+		r + s = \frac{p}{q} p \frac{t}{u} = \frac{pu + qt}{qu}
+	\end{equation}
+	Porque $q \neq 0$ y $u \neq 0$, sigue que $qu \neq 0$. Consecuentemente, si expresamos $r + s$ como el radio de dos enteros, $v = pu +
 \end{enumerate}
 
 \end{document}
