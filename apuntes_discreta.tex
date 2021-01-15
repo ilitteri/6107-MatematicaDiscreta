@@ -946,4 +946,29 @@ Otra combinacion util de una regla de inferencia de logica proposicional y una r
 		\therefore &P(a)'
 	\end{aligned}
 \end{equation*}
+
+\subsection{Introduccion a demostraciones}
+
+Formalmente, un \textbf{teorema} es una delcaracion que puede demostrarse verdadera. En la escritura matematica, el termino teorema es usualmente reservado para una declaracion que es considerada de alguna forma importante. Los teoremas menos importantes a veces son llamados \textbf{proposiciones}. (Los teoremas tambien pueden referirse como \textbf{hechos} o \textbf{resultados}). Un teorema puede ser la cuandificacion universal de una declaracion condicional con una o mas premisas y una conclusion. Demostramos que un teorema es verdadero con una \textbf{prueba}. Una prueba es un argumento valido que establece la validez de un teorema. Las declaraciones usadas en una prueba pueden incluir \textbf{axiomas} (o \textbf{postulado}), los cuales son declaraciones que asumimos verdaderas, las premisas, si las hay, de un teorema, y teoremas previamente demostrados. Los axiomas son escritos usando terminos primitivos que no requieren una definicion, pero todos los demas terminos utilizados en teoremas y sus pruebas deben ser definidos. Las reglas de inferencia, junto con las definiciones de términos, se utilizan para sacar conclusiones de otras afirmaciones, uniendo los pasos de una prueba. En la práctica, el paso final de una demostración suele ser solo la conclusión del teorema. Sin embargo, para mayor claridad, a menudo recapitularemos el enunciado del teorema como el paso final de una demostración.
+
+Un teorema menos importante que resulta util en la prueba de otros resultados se llama \textbf{lema}. Las pruebas complicadas son usualmente faciles de entender cuando son probadas usando una serie de lemas, donde cada lema se provee individualmente. Un \textbf{corolario} es un teorema que puede establecerse directamente de un teorema que ha sido probado (se podria considerar como una consecuencia del teorema previamente demostrado). Una \textbf{conjetura} es una declaracion que se propone como verdadera, generalmente sobre la base de alguna evidencia parcial, un argumento heurístico o la intuición de un experto. Cuando se encuentra una prueba para una conjetura, la conjetura se convierte en un teorema. Muchas veces las conjeturas se demuestran falsas, por lo tanto no son teoremas.
+
+\subsubsection*{Metodos para probar teoremas}
+
+\subsubsection*{Pruebas directas}
+
+Una \textbf{prueba directa} de una delcaracion condicional $p \rightarrow q$ se construye suponiendo, como primer paso, que $p$ es verdadera; los pasos subsecuentes se contruyen usando reglas de inferencia, con el paso final mostramos que $q$ tambien debe ser verdadero. Una prueba directa muestra que una declaracion condicional $p \rightarrow q$ es verdadera mostrando que si $p$ es verdadera, entonces $q$ tiene que ser verdadera, tal que la combinacion de $p$ verdadera y $q$ falsa nunca ocurra. En una prueba directa, suponemos que $p$ es verdadera y usamos axiomas, definiciones, y teoremas probados, junto con las reglas de inferencia, para mostrar que $q$ tambien es verdadera. Las pruebas directas de muchos resultados son bastante sencillas. Empezando por la hipostesis y llegando a la conclusion, el camino a seguir es esencialmente dictado por las premisas disponibles en cada paso. Sim embargo, las pruebas directas a veces requieren conocimientos particulares y pueden ser bastante complicadas.\\
+
+\textbf{Definicion.} Un entero $n$ es $par$ si existe un entero $k$ tal que $n = 2k$, y $n$ es $impart$ si existe un entero $k$ tal que $n = 2k + 1$. (Notese que todo entero es o par o impar, y no ambos al mismo tiempo). Dos enteros tienen la $misma paridad$ cuando o ambos son pares o ambos son impares; tienen $paridad opuesta$ cuando uno es par y el otro impar.
+
+\subsubsection*{Ejemplos}
+
+\begin{enumerate}
+	\item Probar el teorema "Si $n$ es un entero impar, entonces $n^{2}$ es impar".\\
+	\textit{Solucion:} Note que el teorema declara $\forall nP((n) \rightarrow Q(n))$, donde $P(n)$ es "$n$ es un entero impar" y $Q(n)$ es "$n^{2}$ es impar". Ahora mostramos que $P(n)$ implica $Q(n)$, sin usar explicitamente la instanciacion universal. Aumimos que la hipotesis de esta declaracion condicional es verdadera, por lo tanto, asumimos que $n$ es impar. Queremos demostrar que $n^{2}$ es tambien impar. Podemos elevar al cuadrado ambos lados de la ecuacion $n = 2k + 1$ para obtener una nueva ecuacion que expresa $n^{2}$. Cuando hacemos esto, encontramos que $n^{2} = (2k + 1)^{2} = 4k^{2} + 4k + 1 = 2 (2k^{2} + 2k) + 1$. Por definicion de entero impar, podemos concluir que $n^{2}$ es un entero impar. Consecuentemente hemos probado que si $n$ es un entero impar, entonces $n^{2}$ es un entero impar.
+
+	\item  Da una prueba directa de que si $m$ y $n$ son cuadrados perfectos, entonces $nm$ también es un \textbf{cuadrado perfecto}. (Un número entero a es un cuadrado perfecto si hay un número entero $b$ tal que $a = b^{2}$).\\
+	\textit{Solucion:} Para hacer una prueba directa de este teorema, suponemos que la hipotesis de la declaracion condicional es verdadera, entonces asumimos que $m$ y $n$ son cuadrados perfectos. Por definicion de cuadrado perfecto, sabemos que hay enteros $s$ y $t$ tal que $m = s^{2}$ y $n = t^{2}$. El objetivo de esta prueba es mostrar que $mn$ debe ser tambien un cuadrado perfecto cuando $m$ y $n$ lo son; podemos mostrar esto sustituyendo $s^{2}$ por $m$ y $t^{2}$ por $n$ en $mn$. Esto nos dice que $mn = s^{2}t^{2}$. Por lo tanto, $mn = s^{2}t^{2} = (ss)(tt) = (st)(st) = (st)^{2}$, usando conmutatividad y asociatividad de la multiplicacion. Por definicion de cuadrado perfecto, sabemos que $mn$ es tambien un cuadrado perfecto, porque es es el cuadrado de $st$, el cual es un entero. Hemos probado que si $m$ y $n$ son ambos cuadrados perfectos, entonces $mn$ tambien lo es.
+\end{enumerate}
+
 \end{document}
