@@ -1022,7 +1022,48 @@ Recordar que en una prueba por contraposicion se asume que la conclusion de la d
 	\begin{equation}
 		r + s = \frac{p}{q} p \frac{t}{u} = \frac{pu + qt}{qu}
 	\end{equation}
-	Porque $q \neq 0$ y $u \neq 0$, sigue que $qu \neq 0$. Consecuentemente, si expresamos $r + s$ como el radio de dos enteros, $v = pu +
+	Porque $q \neq 0$ y $u \neq 0$, sigue que $qu \neq 0$. Consecuentemente, si expresamos $r + s$ como la proporcion de dos enteros, $v = pu + qt$ y $w = qu$, donde $w \neq 0$. Esto significa que $r + s$ es racional. 
 \end{enumerate}
+
+\subsubsection*{Demostraciones por contradiccion}
+
+Porque la declaracion $r \wedge r'$ es una contradiccion siempre y cuando  $r$ sea una proposicion, podemmos probar que $p$ es verdadera si podemos mostrar que $p' \rightarrow (r \wedge r')$ es verdadera para algua proposicion $p$. Las pruebas de este tipo se llamana \textbf{pruebas por contradiccion}. Porque una prueba por contradiccion no prueba un resultado de forma directa, es otro tipo de prueba indirecta.
+
+Las pruebas por contradiccion pueden usarase para probar declaraciones condicionales. En tales pruebas primero se asume la negacion de la conclusion. Luego usamos las premisas del teorema y  la negacion de la conclusion llega a una contradiccion.
+
+Podemos escribir una prueba por contraposicion de una declaracion condicional como una prueba por contradiccion. En una prueba de $p \rightarrow q$ por contraposicion, asumimos que $q'$ es verdadera. Cuando mostramos que $p'$ debe tambien ser verdadera. Para reescribir una prueba por contraposicion de una declaracion condicional como una prueba por contradiccion. En una prueba de $p \rightarrow q$ como una prueba por contradiccion, suponemos que tanto $p$ y $q'$ son verdaderas. Entonces, usamos los pasos de la rueba de $q' \rightarrow p'$ para mostrar que $p'$ es verdadera. Esto lleva a la contradiccion $p \wedge p'$,  completando la prueba.
+
+Tambien podemos probar por contradiccion que $p \rightarrow q$ es verdadera asumiendo que $p$ y $q'$ son verdaderas, y mostrando que $q$ debe tambien ser verdadera. Esto implica que $q'$ y $q$ son ambas verdaderas, una contradiccion. Esto nos dice que podemos trasformar una prueba directa en una prueba por contradiccion. 
+\subsubsection*{Ejemplos}
+
+\begin{enumerate}
+	\item Mostrar que al menos 4 de 22 dias cualesquiera deben caer en un mismo dia de  la semana.\\
+	\textit{Solucion:} Sea $p$ la proposicion "Al menos 4 de 22 dias elegidos caen en el mismo dia de la semana". Se supone que $p'$ es verdadera. Esto significa que al menos 3 dias de los 22 caen en el mismo dia de la semana. Que haya 7 dias en la semana implica que al menos 21 dias pudieron haberse elegido, tal que para cada uno de los dias de la semana, al menos 3 de los elegidos caeran en el mismo dia. Esto contradice la premisa de que tenemos 22 dias bajo consideracion. Esto es, si $r$ es la declaracion de que 22 dias son elegido, entonces hemos demostrado que $p' \rightarrow (r \wedge r')$. Consecuentemente, sabemos que $p$ es verdadero.
+\end{enumerate}
+
+\subsubsection*{Pruebas por equivalencia}
+
+Para probar un teorema que es una declaracion bicondicional, es decir, una declaracion de la forma $p \leftrightarrow q$, mostramos que $p \rightarrow q$ y $q \rightarrow p$ son verdaderas. La validez de esta aproximacion esta basada en la tautologia $(p \leftrightarrow q) \leftrightarrow (p \rightarrow q) \wedge (q \rightarrow p)$.
+
+A veces un teorema declara que algunas proposiciones son equivalentes. Tal teorema delcara que las proposiciones $p_{1}, p_{2}, ..., p_{n}$ son equialentes. Esto puede escribirse como $p_{1} \leftrightarrow p_{2} \leftrightarrow ... \leftrightarrow p_{n}$, lo que declara que todas las $n$ proposicinoes tienen los mismos valores de verdad, y consecuentemente, que para toda $i$ y $j$ con $1 \leq i \leq n$ y $1 \leq j \leq n$, $p_{i}$ y $p_{j}$ son equivalentes. Una forma de probar que esto es mutuamente equivalente es usar la tautologia $p_{1} \leftrightarrow p_{2} \leftrightarrow ... \leftrightarrow p_{n} \leftrightarrow (p_{1} \rightarrow p_{2}) \wedge (p_{2} \rightarrow p_{3}) \wedge ... \wedge (p_{n} \rightarrow p_{1})$. Esto muestra que si las $n$ declaraciones condicionales pueden mostrarse verdaderas, entonces las proposiciones $p$ son equivalentes.
+
+Cuando demostramos que un grupo de enunciados son equivalentes, podemos establecer cualquier cadena de enunciados condicionales que elijamos siempre que sea posible trabajar a lo largo de la cadena para pasar de cualquiera de estos enunciados a cualquier otro enunciado. Por ejemplo, podemos mostrar que $p_{1}, p_{2}, p_{3}$ son equivalentes mostrando que $p_{1} \rightarrow p_{3}$, $p_{3} \rightarrow p_{2}$, y $p_{2} \rightarrow p_{1}$.
+\subsubsection*{Ejemplos}
+
+\begin{enumerate}
+	\item Probar el teorema "Si $n$ es un entero, entonces $n$ es impar sii $n^{2}$ es impar".
+	\textit{Solucion:} Este teorema es de la forma "$p$ sii $q$", donde $p$ es "$n$ es impar" y $q$ es "$n^{2}$ es impar". Para probar este teorema, necesitamos probar que $p \rightarrow q$ y $q \rightarrow p$ son verdaderas.
+
+	Ya se han probado ambas veraderas en ejemplos anteriores, por lo tanto queda probado el teorema.
+\end{enumerate}
+
+\subsubsection*{Contraejemplos}
+
+Para demostrar que una delcaracion de la forma $\forall xP(x)$ es falsa, debemos encontrar un \textbf{contraejemplo}, es decir, un ejemplo $x$ para el cual $P(x)$ es falsa. Cuando se presenta tal declaracion, que creemos es falsa o que ha resistido todo intento de demostracion, buscamos un contraejemplo.
+
+\subsubsection*{Ejemplo}
+
+Mostrar que la declaracion "Todo entero positivo e la suma de los cuadrados de dos enteros" es falsa.\\
+\textit{Solucion:} Para mostrar que esto es falso, buscamos un contraejemplo, que es un entero particular que no es la suma de dos cuadrados de dos enteros. No toma mucho encontrar uno, porque $3$ no puede ser escrito como suma de cuadrados de  dos enteros sin sobrepasar $3$. De esta forma se demuestra que es falsa.
 
 \end{document}

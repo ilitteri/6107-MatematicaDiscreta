@@ -270,8 +270,14 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
-OUTPUT /home/ivan/LaTeX/matematica-discreta/apuntes_discreta.out
+INPUT /home/ivan/LaTeX/matematica-discreta/apuntes_discreta.out
+INPUT /home/ivan/LaTeX/matematica-discreta/apuntes_discreta.out
+INPUT /home/ivan/LaTeX/matematica-discreta/apuntes_discreta.out
+INPUT /home/ivan/LaTeX/matematica-discreta/apuntes_discreta.out
 OUTPUT /home/ivan/LaTeX/matematica-discreta/apuntes_discreta.pdf
+INPUT /home/ivan/LaTeX/matematica-discreta/apuntes_discreta.out
+INPUT /home/ivan/LaTeX/matematica-discreta/apuntes_discreta.out
+OUTPUT /home/ivan/LaTeX/matematica-discreta/apuntes_discreta.out
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
